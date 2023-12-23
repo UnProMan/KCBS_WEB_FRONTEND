@@ -1,0 +1,15 @@
+@import './font.scss';
+@import './variables.scss';
+@import './default.scss';
+
+* {
+    box-sizing: border-box;
+    font-family: 'BMDOHYEON';
+}
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+}
