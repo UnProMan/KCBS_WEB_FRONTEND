@@ -7,10 +7,10 @@ const useRefreshDataQuery = () => {
     const userStore = useUserStore();
 
     return useQuery(['refreshDataQuery'], api.user.refreshData, {
-        retry: 0,
+        retry: false,
         enabled: false,
         onSuccess: (data: User) => {
-            if (data !== null) {
+            if (data) {
                 userStore.setLoginUser(data);
             }   
         },

@@ -13,8 +13,8 @@ axiosInstance.interceptors.request.use(
       //요청 보내기 전에 수행 로직
       
       const userStore = useUserStore();
-      if (userStore.user?.accessToken) {
-          request.headers["Authorization"] = `Bearer ${userStore.user.accessToken}`;
+      if (userStore.isLogin) {
+          request.headers["Authorization"] = `Bearer ${userStore.user?.accessToken}`;
       }
 
       return request;

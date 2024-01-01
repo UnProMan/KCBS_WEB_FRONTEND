@@ -5,6 +5,7 @@ import { useUserStore } from '@/store/useUserStore';
 import { useRouter } from 'vue-router';
 import { computed, type ComputedRef } from 'vue';
 import type { AxiosError } from 'axios';
+import { useAlertStore } from '@/store/useAlertStore';
 
 const useLoginUserQuery = (req: ComputedRef<LoginRequest>) => {
     const userStore = useUserStore();
@@ -15,13 +16,17 @@ const useLoginUserQuery = (req: ComputedRef<LoginRequest>) => {
         api.user.loginUser(req.value),
         {
             enabled: false,
+            retry: false,
             onSuccess: (data: User) => {
                 userStore.setLoginUser(data);        
-                        
                 router.push('/main');
             },
             onError: (error: AxiosError) => {
-                console.log(error);
+                useAlertStore().setContent({
+                    type: 'error',
+                    title: '로그인',
+                    message: '학번이나 비밀번호가 틀렸습니다.'
+                });
             }
         }
     );

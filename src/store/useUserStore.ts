@@ -19,18 +19,10 @@ export const useUserStore = defineStore("user-store", () => {
     const setNewAccessToken = (value: string) => {
         if (isLogin.value)
             user.value = {
-                id: user.value!.id,
-                studentId: user.value!.studentId,
-                name: user.value!.name,
-                email: user.value!.email,
-                birthday: user.value!.birthday,
-                phone_Number: user.value!.phone_Number,
-                attendance_state: user.value!.attendance_state,
-                role: user.value!.role,
-                file_ID: user.value?.file_ID,
+                ...user.value!,
                 accessToken: value
             };
-    }
+    };
 
     return { 
         user, 

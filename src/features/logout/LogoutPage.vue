@@ -2,14 +2,13 @@
 import { useAlertStore } from '@/store/useAlertStore';
 import { useUserStore } from '@/store/useUserStore';
 import { watch } from 'vue';
-import api from '@/api/index';
-import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
+import useLogoutUserQuery from './composables/useLogoutUserQuery';
 
 const alertStore = useAlertStore();
 const userStore = useUserStore();
-const { isAlert } = storeToRefs(useAlertStore());
 const router = useRouter();
+const { refetch } = useLogoutUserQuery();
 
 alertStore.setContent({
     type: "question",
@@ -22,16 +21,11 @@ alertStore.setContent({
  * 만약 취소를 누르면 isAlert가 변경되면서 창이 사라지고 메인으로 
  */
 watch(
-    () => ({isOkay: alertStore.isOkay, alert: alertStore.isAlert}),
-    ({isOkay, alert}) => {
-        if (isOkay) {
-            api.user.logoutUser();
-            userStore.logout();
+    () => ({isOkay: alertStore.isOkay, isAlert: alertStore.isAlert}),
+    ({isOkay, isAlert}) => {
+        if (isOkay) refetch.value();
 
-            isAlert.value = false;
-        }
-
-        if (!alert) router.push('/main');
+        if (!isAlert) router.push('/main');
     }
 );
 

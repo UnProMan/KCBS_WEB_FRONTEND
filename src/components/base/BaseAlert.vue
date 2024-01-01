@@ -22,8 +22,9 @@ const icon = computed(() => {
 /**
  * Alert 창 끄는 버튼
  */
-const handleIsAlertClick = () => 
-    isAlert.value = false;
+const handleIsAlertClick = computed(() =>
+    isAlert.value = false
+);
 
 /**
  * Yes 버튼 클릭 시
@@ -63,7 +64,11 @@ const handleOkayClick = computed(() =>
                 <BaseButton
                     v-if="content.type === 'question'"
                     color='var(--red-800)'
-                    @click="handleIsAlertClick"
+                    @click="[
+                        content.type === 'question'
+                        ? handleIsAlertClick
+                        : none
+                    ]"
                 >
                     취소
                 </BaseButton>

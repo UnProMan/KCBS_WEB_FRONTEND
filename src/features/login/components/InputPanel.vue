@@ -2,12 +2,12 @@
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseText from '@/components/base/BaseText.vue';
 import useLoginUserQuery from '../composables/useLoginUserQuery';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import type { LoginRequest } from '@/model/User';
-import { computed } from 'vue';
+import { useAlertStore } from '@/store/useAlertStore';
 
-const studentId = ref<string>("");
-const password = ref<string>("");
+const studentId = ref<string>('');
+const password = ref<string>('');
 
 const requestData = computed<LoginRequest>(() => ({
     queryParams: {
@@ -18,11 +18,18 @@ const requestData = computed<LoginRequest>(() => ({
 
 /* 로그인 버튼 액션 */
 const handlerLoginButton = () => {
-    refetch.value();
+    if (!studentId.value.trim() || !password.value.trim()) {
+        useAlertStore().setContent({
+            type: "error",
+            title: "로그인",
+            message: "학번이나 비밀번호를 입력해주세요."
+        });
+    } else {
+        refetch.value();
+    }
 };
 
 const { refetch } = useLoginUserQuery(requestData);
-
 
 </script>
 
