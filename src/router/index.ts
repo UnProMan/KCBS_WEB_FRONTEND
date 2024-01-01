@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router';
-import { SERVER_PREFIX } from '@/model/Constants';
 import { navigations } from './navigation';
+import { updateActiveDomainName } from './navigationGuide';
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '@/store/useUserStore';
 
 const generatedNavigations = navigations.flatMap(
     ({id, path, component}) => {
@@ -22,8 +24,27 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHistory(SERVER_PREFIX),
+    history: createWebHistory(import.meta.env.VITE_ROUTER_BASE_URL),
     routes
-})
+});
+
+router.beforeEach((to, _, next) => {
+    const userStore = useUserStore();
+    const navi = navigations.find(f => f.id === to.name);
+
+    /**
+     * navi?.isLoginShow !== undefined && navi.isLoginShow !== userStore.isLogin
+     * 로그인을 하거나 안했을때만 보이고, 현재 로그인 상태와 맞지 않으면
+     * (만약 navi.isLoginShow가 undefined면 이건 로그인을 하건 비로그인이건 언제든 보임)
+     * 
+     * 메인으로 return
+     */
+    if (navi?.isLoginShow !== undefined && navi.isLoginShow !== userStore.isLogin) {
+        return next({ name: 'main' });
+    } else {
+        updateActiveDomainName(to);
+        return next();
+    }
+});
 
 export default router

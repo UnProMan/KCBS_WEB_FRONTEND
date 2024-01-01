@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import TheLogo from '../component/TheLogo.vue';
-import UserInformation from '../component/UserInformation.vue';
+import TheLogo from '../components/TheLogo.vue';
+import UserInformation from '../components/UserInformation.vue';
 import NavigationLink from '../navigation/NavigationLink.vue';
 </script>
 
 <template>
 
-    <div class="header-container">
+    <div class="header-container layout__flexColumn">
         <TheLogo/>
         <NavigationLink/>
         <UserInformation/>
@@ -19,8 +19,6 @@ import NavigationLink from '../navigation/NavigationLink.vue';
 .header-container {
     flex: 1;
 
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
 
     padding: 30px 22px;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { UserRole } from "@/model/User";
-import BaseIcon from '@/component/base/BaseIcon.vue';
+import BaseIcon from '@/components/base/BaseIcon.vue';
 
 interface Props {
     id: string;
@@ -8,17 +8,23 @@ interface Props {
     path: string;
     icon: string;
     accessPoint?: UserRole[];
-    active?: string;
+    active?: boolean;
 }
+
+/* Props */
 
 const props = defineProps<Props>();
 </script>
 
 <template>
 
-    <div class="navi-container default__navigationBar">
+    <div 
+        class="navi-container default__navigationBar"
+        :class="{ 'navi-container--active': props.active }"
+    >
         <BaseIcon
             :name="props?.icon"
+            :fill="props.active"
             class="icon"
         />
 
@@ -40,11 +46,18 @@ const props = defineProps<Props>();
     color: white;
 
     user-select: none;
+    cursor: pointer;
+    
+    transition: all 0.225s ease-out;
 
     &:hover {
         background: rgba(var(--white));
         color: black;
-        transition: all 0.3s ease-out;
+    }
+
+    &--active {
+        background: white;
+        color: black;
     }
 }
 

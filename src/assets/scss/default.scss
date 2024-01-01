@@ -45,4 +45,32 @@
         font-weight: 550;
     }
 
+    &__inputText {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    &__placeholder {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+}
+
+.layout {
+
+    &__center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    &__flexColumn {
+        display: flex;
+        flex-direction: column;
+    }
+
 }

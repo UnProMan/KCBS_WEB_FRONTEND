@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    메인입니다만?
+    뭐임 왜 안됨?
 </template>
 
 <style lang="scss" scoped>

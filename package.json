@@ -13,8 +13,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "axios": "^1.6.2",
     "pinia": "^2.1.7",
     "vue": "^3.3.10",
+    "vue-query": "^1.26.0",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

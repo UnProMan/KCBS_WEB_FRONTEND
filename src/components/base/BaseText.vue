@@ -1,39 +1,33 @@
 <script setup lang="ts">
-import BaseIcon from './BaseIcon.vue';
 import { ref, computed } from 'vue';
 
 interface BaseInputProps {
-    type?: string;
     width: string;
     height: string;
+    caption?: string;
     disable?: boolean;
     value?: string;
-    caption: string;
-    icon?: string;
     numberFilter?: boolean;
 }
 
 /* Props & Emits */
 const props = withDefaults(defineProps<BaseInputProps>(), {
-    icon: undefined,
     value: '',
-    type: 'text',
 });
 
 const valueRef = ref(props.value);
 
 const emits = defineEmits<{
-    (e: 'click'): void;
     (e: 'update:value', value: string): void;
-    (e: 'keyup.enter'): void;
 }>();
 
 /* properties */
 const isFocused = ref<boolean>(false);
 
-const isActive = computed(() =>
-    (props.value !== '' && props.value !== null) || isFocused.value,
-);
+const isActive = computed(() => {
+    return (valueRef.value !== '' && valueRef.value !== null) || isFocused.value
+});
+
 
 /* methods, callbacks */
 const onInput = (event: Event) => {
@@ -44,9 +38,6 @@ const onInput = (event: Event) => {
     emits('update:value', valueRef.value);
 };
 
-const onClick = () => {
-    emits('click');
-};
 </script>
 
 <template>
@@ -56,21 +47,27 @@ const onClick = () => {
     >
         <div class="input-container">
             <input
-                :type="props.type"
+                type="text"
+                
                 id="fname"
                 name="fname"
+                class="default__inputText"
+                
                 autocomplete="off"
+                
                 :value="valueRef"
                 :disabled="props?.disable"
                 aria-labelledby="placeholder-fname"
+
                 @input="onInput"
                 @focus="() => (isFocused = true)"
                 @blur="() => (isFocused = false)"
             />
+
             <div class="pseudo-placeholder-text">
                 <label for="fname" id="placeholder-fname" class="placeholder-text">
                     <div 
-                        class="text"
+                        class="text default__placeholder"
                         :class="{ 'text--active': isActive }"    
                     >
                         {{ props.caption }}
@@ -78,33 +75,20 @@ const onClick = () => {
                 </label>
             </div>
         </div>
-        <BaseIcon
-            v-if="props.icon"
-            :class="{ 'icon--active': isActive }"
-            :name="props.icon"
-            @click="onClick"
-        />
     </div>
 </template>
 
 <style lang="scss" scoped>
-$border-color: rgba(var(---orange));
+$border-color: rgba(var(--blue));
 
 .input-row {
+    width: v-bind(width);
+    height: v-bind(height);
+
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(var(---orange));
-    height: v-bind(height);
-    width: v-bind(width);
-
-    .icon {
-        font-size: 16px;
-        padding-top: 16px;
-        
-        &--active {
-            color: $border-color;
-        }
-    }
+    
+    border-bottom: 1px solid rgba(var(--gray-800) / 0.8);
 
     &--active {
         border-color: $border-color !important;
@@ -126,20 +110,21 @@ input {
 
     &:focus {
         outline: none;
-        border-color: $border-color;
     }
 }
 
 .pseudo-placeholder-text {
     position: relative;
     height: 0px;
+    border: none;
 
     .placeholder-text {
         position: absolute;
         bottom: 4px;
         left: 4px;
-        border: 1px solid transparent;
+        
         background-color: transparent;
+
         display: flex;
         align-items: center;
 
@@ -149,18 +134,21 @@ input {
 
 .text {
     padding: 0 2px;
+
     background-color: transparent;
-    color: rgba(var(--gray));
+    color: rgba(var(--gray-800) / 0.8);
 
     transform: translate(0);
     transition: transform 0.15s ease-out, font-size 0.15s ease-out,
         background-color 0.2s ease-out, color 0.15s ease-out;
 
     &--active {
-        background-color: white;
         font-size: 0.8rem;
+        
+        background-color: white;
         color: $border-color;
-        transform: translate(-3%, -130%);
+
+        transform: translate(-3%, -150%);
     }
 }
 
@@ -168,10 +156,6 @@ input,
 .pseudo-placeholder-text {
     padding: 0 4px;
     padding-bottom: 1px;
-}
-
-input:focus + .pseudo-placeholder-text .text {
-    border-color: $border-color;
 }
 
 </style>

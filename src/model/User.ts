@@ -8,7 +8,8 @@ export type UserRoleCode =
     | 'ROLE_PRODUCER_LEADER'
     | 'ROLE_CINEMA_LEADER'
     | 'ROLE_EDITING_LEADER'
-    | 'ROLE_ANCHOR_LEADER';
+    | 'ROLE_ANCHOR_LEADER'
+    | 'ROLE_ADMIN';
 
 export type UserRole =
     | '국장'
@@ -20,7 +21,8 @@ export type UserRole =
     | 'PD팀장'
     | '촬영팀장'
     | '편집팀장'
-    | '앵커팀장';
+    | '앵커팀장'
+    | '관리자';
 
 export const userRoleMap: ReadonlyMap<UserRoleCode, UserRole> = new Map([
     ['ROLE_PRESIDENT', '국장'],
@@ -32,5 +34,26 @@ export const userRoleMap: ReadonlyMap<UserRoleCode, UserRole> = new Map([
     ['ROLE_PRODUCER_LEADER', 'PD팀장'],
     ['ROLE_CINEMA_LEADER', '촬영팀장'],
     ['ROLE_EDITING_LEADER', '편집팀장'],
-    ['ROLE_ANCHOR_LEADER', '앵커팀장']
+    ['ROLE_ANCHOR_LEADER', '앵커팀장'],
+    ['ROLE_ADMIN', '관리자']
 ]);
+
+export interface LoginRequest {
+    queryParams: {
+        studentId: string;
+        password: string;
+    }
+};
+
+export interface User {
+    id: number;
+    studentId: string;
+    name: string;
+    email: string;
+    birthday: Date | string;
+    phone_Number: string;
+    attendance_state: '재학' | '휴학';
+    role: UserRoleCode;
+    file_ID?: string;
+    accessToken: string;
+}

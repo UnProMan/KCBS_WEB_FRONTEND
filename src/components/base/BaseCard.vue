@@ -11,7 +11,7 @@
 
 .card-container {
     background-color: white;
-    box-shadow: rgba(var(--gray) / 0.5);
+    box-shadow: 0px 4px 12px rgba(var(--gray) / 0.5);
     border-radius: 16px;
     padding: 28px;
 }
