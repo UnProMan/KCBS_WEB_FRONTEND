@@ -50,10 +50,23 @@ export interface User {
     studentId: string;
     name: string;
     email: string;
-    birthday: Date | string;
+    birthday: Date;
     phone_Number: string;
     attendance_state: '재학' | '휴학';
     role: UserRoleCode;
+    kisu: number;
     file_ID?: string;
     accessToken: string;
-}
+};
+
+export interface JoinUserRequest {
+    queryParams: {
+        studentId: string;
+        name: string;
+        email: string;
+        password: string;
+        birthday: Date;
+        phone_number: string;
+        kisu: number;
+    }
+};

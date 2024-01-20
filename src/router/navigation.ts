@@ -33,6 +33,7 @@ export const navigations: Navigation[] = [
         path: '/signUp',
         icon: 'person_add',
         isLoginShow: false,
+        component: () => import('@/features/join_user/page/JoinUserPage.vue')
     },
     {
         id: 'logout',

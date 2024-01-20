@@ -1,4 +1,4 @@
-import type { LoginRequest, User } from "@/model/User"
+import type { LoginRequest, User, JoinUserRequest } from "@/model/User"
 import axiosInstance from "./config";
 
 export const loginUser = async ({ queryParams: params }: LoginRequest) =>
@@ -9,3 +9,6 @@ export const logoutUser = async () =>
 
 export const refreshData = async () =>
     await axiosInstance.post<User>("/user/refreshData");
+
+export const joinUser = async ({ queryParams: params }: JoinUserRequest) =>
+    await axiosInstance.post("/join", params);

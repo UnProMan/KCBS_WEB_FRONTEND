@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BaseCard from '@/components/base/BaseCard.vue';
-import InputPanel from '../components/InputPanel.vue';
+import LoginInputPanel from '../components/LoginInputPanel.vue';
 
 </script>
 
@@ -9,7 +9,7 @@ import InputPanel from '../components/InputPanel.vue';
     <BaseCard class="login-container layout__flexColumn">
         <div class="default__title1 title">로그인</div>
 
-        <InputPanel style="flex: 2.5;"/>
+        <LoginInputPanel style="flex: 2.5;"/>
 
         <div class="other-container">
             추후에 추가

@@ -2,17 +2,19 @@
 import { ref, computed } from 'vue';
 
 interface BaseInputProps {
-    width: string;
-    height: string;
+    width?: string;
+    height?: string;
     caption?: string;
     disable?: boolean;
-    value?: string;
+    value?: string | number;
     numberFilter?: boolean;
+    type?: string;
 }
 
 /* Props & Emits */
 const props = withDefaults(defineProps<BaseInputProps>(), {
     value: '',
+    type: 'text',
 });
 
 const valueRef = ref(props.value);
@@ -47,7 +49,7 @@ const onInput = (event: Event) => {
     >
         <div class="input-container">
             <input
-                type="text"
+                :type="props.type"
                 
                 id="fname"
                 name="fname"
@@ -113,6 +115,10 @@ input {
     }
 }
 
+input[type=password]{
+        font-family:"굴림";
+    }
+
 .pseudo-placeholder-text {
     position: relative;
     height: 0px;
@@ -124,6 +130,7 @@ input {
         left: 4px;
         
         background-color: transparent;
+        user-select: none;
 
         display: flex;
         align-items: center;
