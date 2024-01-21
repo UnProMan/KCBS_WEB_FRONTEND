@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router';
 import { navigations } from './navigation';
 import { updateActiveDomainName } from './navigationGuide';
-import { storeToRefs } from 'pinia';
 import { useUserStore } from '@/store/useUserStore';
 
 const generatedNavigations = navigations.flatMap(
@@ -19,6 +18,10 @@ const routes = [
     {
         path: '/',
         redirect: {path : '/main'}
+    },
+    {
+        path: '/error',
+        component: () => import('@/components/common/ErrorPage.vue')
     },
     ...generatedNavigations
 ];
