@@ -8,7 +8,7 @@ export const logoutUser = async () =>
     await axiosInstance.post("/user/logout");
 
 export const refreshData = async () =>
-    await axiosInstance.post<User>("/user/refreshData");
+    await axiosInstance.get<User>("/user/refreshData");
 
-export const joinUser = async ({ queryParams: params }: JoinUserRequest) =>
-    await axiosInstance.post("/join", params);
+export const joinUser = async (req: JoinUserRequest) =>
+    await axiosInstance.post("/join", req);

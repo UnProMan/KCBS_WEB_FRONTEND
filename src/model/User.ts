@@ -60,13 +60,11 @@ export interface User {
 };
 
 export interface JoinUserRequest {
-    queryParams: {
-        studentId: string;
-        name: string;
-        email: string;
-        password: string;
-        birthday: Date;
-        phone_number: string;
-        kisu: number;
-    }
+    studentId: string;
+    name: string;
+    email: string;
+    password: string;
+    birthday: Date;
+    phone_number: string;
+    kisu: number;
 };

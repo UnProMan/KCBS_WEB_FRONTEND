@@ -17,17 +17,17 @@ const birthday = ref<String>('');
 const phone_number = ref<String>('');
 const kisu = ref<Number>( 30 + (new Date().getFullYear() - 2022) ); // 22년도에 30기가 신입국원이였던걸 이용
 
-const requestData = computed<JoinUserRequest>(() => ({
-    queryParams: {
-        "studentId": studentId.value,
-        "name": name.value,
-        "email": email.value,
-        "password": password.value,
-        "birthday": formatDate(birthday.value),
-        "phone_number": formatPhoneNumber(phone_number.value),
-        "kisu": Number(kisu.value)
-    },
-}));
+const joinUserObject = computed<JoinUserRequest>(() => {
+    return {
+        studentId: studentId.value,
+        name: name.value,
+        email: email.value,
+        password: password.value,
+        birthday: formatDate(birthday.value),
+        phone_number: formatPhoneNumber(phone_number.value),
+        kisu: Number(kisu.value)
+    }
+});
 
 /* Methods */
 
@@ -125,7 +125,7 @@ const handlerJoinButton = () => {
         return;
     };
 
-    join.mutate();
+    mutate(joinUserObject.value);
 };
 
 const showAlert = (message: string) => {
@@ -136,7 +136,7 @@ const showAlert = (message: string) => {
     });
 }
 
-const join = useJoinUserMutation(requestData);
+const { mutate } = useJoinUserMutation();
 
 </script>
 
