@@ -2,6 +2,8 @@
 import { useUserStore } from '@/store/useUserStore';
 import { userRoleMap } from '@/model/User';
 import type { UserRoleCode } from '@/model/User';
+import { formatImageURL } from '@/components/functions/formatFunc';
+import BaseIcon from '@/components/base/BaseIcon.vue';
 
 const userStore = useUserStore();
 
@@ -11,19 +13,26 @@ const userStore = useUserStore();
 
     <div 
         v-if="userStore.isLogin"
-        class="info-container layout__flexColumn"
+        class="info-container"
     >
-        <div class="role default__subtitle2">
-            {{ userRoleMap.get(userStore.user.role) }}
+        <div class="img-container">
+            <img :src="formatImageURL(userStore.user.file_ID)" width="45px" height="45px" />
         </div>
-        <div class="name default__title4">
-            {{ userStore.user.name }}
+
+        <div class="info-text layout__flexColumn">
+            <div class="role default__subtitle2">
+                {{ userRoleMap.get(userStore.user.role) }}
+            </div>
+            <div class="name default__title4">
+                {{ userStore.user.name }}
+            </div>
         </div>
     </div>
 
     <div
         v-else
-        class="name default__title4"
+        class="default__title4"
+        style="color: white;"
     >
         비회원
     </div>
@@ -33,6 +42,32 @@ const userStore = useUserStore();
 <style lang="scss" scoped>
 
 .info-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    transition: all 0.125s ease-out;
+
+    border-radius: 25px;
+    padding: 12px;
+
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+        box-shadow: inset 0px 0px 10px rgba(var(--black));
+    }
+
+}
+
+.img-container {
+    overflow: hidden;
+    border-radius: 30px;
+    width: 45px;
+    height: 45px;
+}
+
+.info-text {
     gap: 8px;
 }
 
