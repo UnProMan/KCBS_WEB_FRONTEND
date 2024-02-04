@@ -19,8 +19,8 @@ const userStore = useUserStore();
             <img :src="formatImageURL(userStore.user.file_ID)" width="45px" height="45px" />
         </div>
 
-        <div class="info-text layout__flexColumn">
-            <div class="role default__subtitle2">
+        <div class="layout__flexColumn">
+            <div class="role default__subtitle3">
                 {{ userRoleMap.get(userStore.user.role) }}
             </div>
             <div class="name default__title4">
@@ -65,10 +65,6 @@ const userStore = useUserStore();
     border-radius: 30px;
     width: 45px;
     height: 45px;
-}
-
-.info-text {
-    gap: 8px;
 }
 
 .role {

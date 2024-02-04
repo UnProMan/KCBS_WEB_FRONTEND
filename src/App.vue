@@ -20,7 +20,7 @@ if (!userStore.isLogin) {
 
     <BaseAlert v-if="alertStore.isAlert" style="z-index: 999" />
     <div class="app-container">
-        <HeaderPage/>
+        <HeaderPage />
         <div class="main-container layout__center">
             <router-view></router-view>
         </div>

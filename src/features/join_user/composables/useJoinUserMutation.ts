@@ -1,7 +1,7 @@
 import api from '@/api/index';
 import type { JoinUserRequest } from '@/model/User';
 import { useMutation } from 'vue-query';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { type ComputedRef } from 'vue';
 import type { AxiosError } from 'axios';
 import type { ErrorResponse } from '@/model/Error';

@@ -29,7 +29,7 @@ export const formatImageURL = (str: String): String =>
  */
 export const formatDateTime = (date: Date): String => {
     const year = date.getFullYear();
-    const month = date.getMonth();
+    const month = date.getMonth() + 1;
     const dayNum = date.getDate();
     const day = date.getDay();
     const week = ['일', '월', '화', '수', '목', '금', '토'];
@@ -38,6 +38,18 @@ export const formatDateTime = (date: Date): String => {
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
 
-    return `${year}년 ${month + 1}월 ${dayNum}일 ${week[day]}요일 ` +
+    return `${year}년 ${month < 10 ? `0${month}` : month}월 ${dayNum < 10 ? `0${dayNum}` : dayNum}일 ${week[day]}요일 ` +
     `${hours < 10 ? `0${hours}` : hours}시 ${minutes < 10 ? `0${minutes}` : minutes}분 ${seconds < 10 ? `0${seconds}` : seconds}초`;
+}
+
+/**
+ * yyyy-MM-dd 형식을 yyyy년 M월 d일로 변경
+ */
+export const formatString = (inputeDate: string): string => {
+    const date = new Date(inputeDate);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    
+    return `${year}년 ${month}월 ${day}일`;
 }

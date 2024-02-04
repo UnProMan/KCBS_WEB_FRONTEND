@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BaseIcon from './BaseIcon.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 interface Props {
     width?: string;
@@ -32,11 +32,21 @@ const onInput = (event: Event) => {
     emits('update:value', valueRef.value);
 };
 
+/* properties */
+const isFocused = ref<boolean>(false);
+
+const isActive = computed(() => {
+    return (valueRef.value !== '' && valueRef.value !== null) || isFocused.value
+});
+
 </script>
 
 <template>
     
-    <div class="inputicon-container">
+    <div 
+        class="inputicon-container"
+        :class="{ 'inputicon-container--active': isActive }"
+    >
         <BaseIcon 
             v-if="props.icon" 
             :name="props.icon" 
@@ -45,7 +55,13 @@ const onInput = (event: Event) => {
 
         <input 
             type="text" 
-            class="default__inputText" 
+
+            class="default__inputText input-row" 
+            :placeholder="props.caption"
+
+            @input="onInput"
+            @focus="() => (isFocused = true)"
+            @blur="() => (isFocused = false)"
         >
     </div>
 
@@ -65,6 +81,11 @@ const onInput = (event: Event) => {
     border: 2px solid rgba(var(--gray-200));
 
     transition: all 0.225s ease-out;
+    overflow: hidden;
+
+    &--active {
+        border-color: rgba(var(--blue));
+    }
 }
 
 input {

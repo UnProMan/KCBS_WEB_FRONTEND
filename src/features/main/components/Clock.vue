@@ -147,6 +147,7 @@ setInterval(() => {
 
 .datetime-text {
     font-size: 1.8vmin;
+    font-weight: 500;
 }
 
 </style>

@@ -19,7 +19,7 @@ import JoinInputPanel from '../components/JoinInputPanel.vue';
 
 .join-container {
     width: 35%;
-    height: 75%;
+    height: 78%;
 
     justify-content: space-between;
 

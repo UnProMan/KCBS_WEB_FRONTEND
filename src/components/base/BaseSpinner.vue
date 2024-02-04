@@ -11,7 +11,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
     size: 32,
     strokeWidth: 2,
-    color: 'rgba(var(--gray-50))'
+    color: 'rgba(var(--gray))'
 });
 
 const path = computed(() => {

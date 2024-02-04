@@ -35,7 +35,7 @@ const isTransparentColor = ():boolean => props.transparent;
         >
         </i>
 
-        <div class="default__normalFont1">
+        <div class="default__subtitle3">
             {{ props.message }}
         </div>
     </BaseCard>

@@ -36,6 +36,14 @@ export const navigations: Navigation[] = [
         component: () => import('@/features/join_user/page/JoinUserPage.vue')
     },
     {
+        id: 'users',
+        name: 'KBCS 인원현황',
+        path: '/users',
+        'icon': 'group',
+        component: () => import('@/features/personalUsers/page/PersonalUsersPage.vue'),
+        isLoginShow: true
+    },
+    {
         id: 'logout',
         name: '로그아웃',
         path: '/logout',
