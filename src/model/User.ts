@@ -12,7 +12,8 @@ export type UserRoleCode =
     | 'ROLE_EDITING_LEADER'
     | 'ROLE_ANCHOR_LEADER'
     | 'ROLE_ADMIN'
-    | 'ROLE_NEWCOMER';
+    | 'ROLE_NEWCOMER'
+    | 'ROLE_HONOR';
 
 export type UserRole =
     | '국장'
@@ -26,7 +27,8 @@ export type UserRole =
     | '편집팀장'
     | '앵커팀장'
     | '관리자'
-    | '신입국원';
+    | '신입국원'
+    | '명예국원';
 
 export const userRoleMap: ReadonlyMap<UserRoleCode, UserRole> = new Map([
     ['ROLE_PRESIDENT', '국장'],
@@ -40,7 +42,8 @@ export const userRoleMap: ReadonlyMap<UserRoleCode, UserRole> = new Map([
     ['ROLE_EDITING_LEADER', '편집팀장'],
     ['ROLE_ANCHOR_LEADER', '앵커팀장'],
     ['ROLE_ADMIN', '관리자'],
-    ['ROLE_NEWCOMER', '신입국원']
+    ['ROLE_NEWCOMER', '신입국원'],
+    ['ROLE_HONOR', '명예국원']
 ]);
 
 export interface LoginRequest {

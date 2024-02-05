@@ -3,7 +3,7 @@ import usePersonalStatusUserQuery from '../composables/usePersonalStatusUsersQue
 import PersonItem from './PersonItem.vue';
 import BaseSpinner from '@/components/base/BaseSpinner.vue';
 import type { PersonalStatusUser, PersonalStatusRequest } from '@/model/User';
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import BaseIcon from '@/components/base/BaseIcon.vue';
 
 interface Props {
@@ -37,9 +37,7 @@ const requestData = computed<PersonalStatusRequest>(() => ({
 
 const { data } = usePersonalStatusUserQuery(requestData);
 
-/**
- * 이 리스트에 존재하는 기수는 보이지 않음
- */
+// 이 리스트에 존재하는 기수는 보이지 않음
 const visibleList = ref([]);
 
 /**
@@ -104,37 +102,45 @@ const iconName = (value: number): string => {
     }
 };
 
+watch (
+    () => data.value,
+    (newValue) => {
+        visibleList.value = [];
+    }
+)
+
 </script>
 
 <template>
     
     <div class="personal-container scrollbar">
         <template v-if="data">
-            <div v-for="item in data" :key="item">
+                <div v-for="item in data" :key="item">
 
-                <div v-if="kisuCheck(item.kisu)" class="kisu-panel">
-                    <div class="text-panel">
-                        <p class="default__subtitle1">{{ item.kisu }}기</p>
-                        <p class="default__subtitle3 peopleNumber">{{ countKisu(item.kisu) }}명</p>
+                    <div v-if="kisuCheck(item.kisu)" class="kisu-panel">
+                        <div class="text-panel">
+                            <p class="default__subtitle1">{{ item.kisu }}기</p>
+                            <p class="default__subtitle3 peopleNumber">{{ countKisu(item.kisu) }}명</p>
+                        </div>
+
+                        <BaseIcon 
+                            :name="iconName(item.kisu)" 
+                            class="icon" 
+                            @click="handleIcon(item.kisu)" 
+                        />
                     </div>
 
-                    <BaseIcon 
-                        :name="iconName(item.kisu)" 
-                        class="icon" 
-                        @click="handleIcon(item.kisu)" 
+                    <PersonItem 
+                        :info="item" 
+                        :department="department"
+                        @click.self="selectUser(item)"
+                        v-if="isVisible(item.kisu)"
+                        v-model:value="department"
+                        :class="{ 
+                            'showItem': isVisible(item.kisu),
+                        }"
                     />
                 </div>
-
-                <PersonItem 
-                    :info="item" 
-                    @click.self="selectUser(item)"
-                    v-if="isVisible(item.kisu)"
-                    v-model:value="department"
-                    :class="{ 
-                        'showItem': isVisible(item.kisu),
-                    }"
-                />
-            </div>
         </template>
 
         <template v-else>

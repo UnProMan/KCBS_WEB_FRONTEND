@@ -106,7 +106,7 @@ const handleSearch = () => {
 
 .girdLayout {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.2fr 1fr;
     gap: 40px;
 }
 

@@ -3,9 +3,11 @@ import type { PersonalStatusUsers } from '@/model/User';
 import { formatImageURL } from '@/components/functions/formatFunc';
 import { userRoleMap } from '@/model/User';
 import { randomIndex } from '@/components/functions/randomFunc';
+import { ref, computed } from 'vue';
 
 interface Props {
     info: PersonalStatusUsers;
+    department: number;
 }
 
 /**
@@ -16,6 +18,10 @@ const emits = defineEmits<{
     (e: 'update:value', value: number): void;
 }>();
 
+
+/**
+ * Data
+ */
 const color = [
     'rgba(var(--red-900))',
     'rgba(var(--pink-900))',
@@ -35,8 +41,16 @@ const color = [
  */
 const randomColor = color[randomIndex(color.length)];
 
-const selectDepartment = (id: number) =>{
-    emits('update:value', id);
+const selectDepartment = (id: number) => {
+    if (isActive(id)) {
+        emits('update:value', null);
+    } else {
+        emits('update:value', id);
+    }
+};
+
+const isActive = (id: number) => {
+    return props.department === id;
 };
 
 </script>
@@ -59,6 +73,7 @@ const selectDepartment = (id: number) =>{
             <template v-for="item in props.info.departments" :key="item">
                 <div 
                     class="departments"
+                    :class="{ 'departments--active': isActive(item.id) }"
                     @click="selectDepartment(item.id)"
                 >
                     {{ item.name }}
@@ -122,7 +137,15 @@ const selectDepartment = (id: number) =>{
 
     transition: all 0.225s ease-out;
 
+    user-select: none;
+    cursor: pointer;
+
     &:hover {
+        background-color: v-bind(randomColor);
+        color: white;
+    }
+
+    &--active {
         background-color: v-bind(randomColor);
         color: white;
     }
