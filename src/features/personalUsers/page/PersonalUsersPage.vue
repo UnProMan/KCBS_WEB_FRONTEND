@@ -59,19 +59,21 @@ const handleSearch = () => {
         </div>
 
         <div 
-            :class="{ 'girdLayout': isShow }"
+            class="personal-wrap"
         >
             <PersonalStatus 
                 v-model:value="detailUser" 
                 :searchName="propsData"
             />
 
-            <DetailsUser 
-                :info="detailUser"
-                class="details"
-                v-model:value="detailUser"
-                v-if="isShow"
-            />
+            <TransitionGroup name="slide">
+                <DetailsUser 
+                    :info="detailUser"
+                    class="details"
+                    v-model:value="detailUser"
+                    v-if="isShow"
+                />
+            </TransitionGroup>
         </div>
     </div>
 
@@ -86,7 +88,7 @@ const handleSearch = () => {
     
     gap: 20px;
     padding: 0px 10px;
-
+    
     overflow: hidden;
 
     @include card_fade_in;
@@ -104,14 +106,19 @@ const handleSearch = () => {
     align-items: center;
 }
 
-.girdLayout {
-    display: grid;
-    grid-template-columns: 2.2fr 1fr;
+.personal-wrap {
+    display: flex;
     gap: 40px;
 }
 
-.details {
-    @include slideInFromRight;
+.slide-enter-active,
+.slide-leave-active {
+    transition: all 0.4s ease;
+}
+.slide-enter-from,
+.slide-leave-to {
+    opacity: 0;
+    transform: translateX(30%);
 }
 
 </style>

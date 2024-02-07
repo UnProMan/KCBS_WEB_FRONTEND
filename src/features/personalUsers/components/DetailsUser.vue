@@ -60,6 +60,7 @@ watch (
     
     <BaseCard class="details-container layout__flexColumn scrollbar">
         <BaseIcon name="close" class="icon" @click="close" />
+
         <div class="image-container">
             <img :src="formatImageURL(props.info.file_ID)">
         </div>
@@ -90,13 +91,23 @@ watch (
 <style lang="scss" scoped>
 
 .details-container {
+    width: 40%;
     height: 82vh;
 
     align-items: center;
     gap: 20px;
 }
 
+.img-warp {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .image-container {
+    position: relative;
+    top: -15px;
+
     overflow: hidden;
     border-radius: 11vw;
     width: 11vw;
@@ -136,9 +147,9 @@ watch (
 }
 
 .icon {
-    position: absolute;
-    right: 15px;
-    top: 10px;
+    position: relative;
+    left: 48%;
+    top: -10px;
 
     font-size: 3vmin;
     border-radius: 3vmin;

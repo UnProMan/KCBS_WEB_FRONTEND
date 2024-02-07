@@ -37,7 +37,7 @@ export const navigations: Navigation[] = [
     },
     {
         id: 'users',
-        name: 'KBCS 인원현황',
+        name: 'KCBS 인원현황',
         path: '/users',
         'icon': 'group',
         component: () => import('@/features/personalUsers/page/PersonalUsersPage.vue'),

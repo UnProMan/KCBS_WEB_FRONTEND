@@ -104,7 +104,7 @@ const iconName = (value: number): string => {
 
 watch (
     () => data.value,
-    (newValue) => {
+    () => {
         visibleList.value = [];
     }
 )
@@ -115,32 +115,31 @@ watch (
     
     <div class="personal-container scrollbar">
         <template v-if="data">
-                <div v-for="item in data" :key="item">
+            <div v-for="item in data" :key="item">
 
-                    <div v-if="kisuCheck(item.kisu)" class="kisu-panel">
-                        <div class="text-panel">
-                            <p class="default__subtitle1">{{ item.kisu }}기</p>
-                            <p class="default__subtitle3 peopleNumber">{{ countKisu(item.kisu) }}명</p>
-                        </div>
-
-                        <BaseIcon 
-                            :name="iconName(item.kisu)" 
-                            class="icon" 
-                            @click="handleIcon(item.kisu)" 
-                        />
+                <div v-if="kisuCheck(item.kisu)" class="kisu-panel">
+                    <div class="text-panel">
+                        <p class="default__subtitle1">{{ item.kisu }}기</p>
+                        <p class="default__subtitle3 peopleNumber">{{ countKisu(item.kisu) }}명</p>
                     </div>
 
+                    <BaseIcon 
+                        :name="iconName(item.kisu)" 
+                        class="icon" 
+                        @click="handleIcon(item.kisu)" 
+                    />
+                </div>
+
+                <TransitionGroup name="item">
                     <PersonItem 
                         :info="item" 
                         :department="department"
                         @click.self="selectUser(item)"
                         v-if="isVisible(item.kisu)"
                         v-model:value="department"
-                        :class="{ 
-                            'showItem': isVisible(item.kisu),
-                        }"
                     />
-                </div>
+                </TransitionGroup>
+            </div>
         </template>
 
         <template v-else>
@@ -153,14 +152,14 @@ watch (
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/anime.scss';
 
 .personal-container {
+    width: 100%;
     height: 82vh;
 }
 
 .kisu-panel {
-    height: 60px;
+    height: 65px;
     padding: 0px 20px;
 
     border-radius: 22px;
@@ -187,8 +186,14 @@ watch (
     font-size: 25px;
 }
 
-.showItem {
-    @include slideInFromTop;
+.item-enter-active,
+.item-leave-active {
+    transition: all 0.5s ease;
+}
+.item-enter-from,
+.item-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 </style>
