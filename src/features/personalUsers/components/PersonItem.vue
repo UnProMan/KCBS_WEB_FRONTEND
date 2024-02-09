@@ -41,6 +41,12 @@ const color = [
  */
 const randomColor = color[randomIndex(color.length)];
 
+/**
+ * isActive가 true면 이미 클릭된 부서로 필터링이 된 상태이므로 
+ * emits로 null을 보내어 필터링 해제
+ * 
+ * isActive가 false면 emits로 해당 부서 정보를 전달하여 필터링 진행
+ */
 const selectDepartment = (id: number) => {
     if (isActive(id)) {
         emits('update:value', null);

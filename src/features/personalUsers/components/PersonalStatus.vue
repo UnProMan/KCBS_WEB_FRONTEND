@@ -49,6 +49,7 @@ const selectUser = (item: PersonalStatusUser) =>{
 };
 
 
+// 기수 헤더를 만들때 사용하는 함수
 const kisuCheck = (value: number) => {
     if (kisu.value !== value) {
         kisu.value = value;
@@ -59,6 +60,7 @@ const kisuCheck = (value: number) => {
 };
 
 
+// 기수 총합 구하는 함수
 const countKisu = (value: number): number => {
     let count = 0;
 
@@ -102,6 +104,7 @@ const iconName = (value: number): string => {
     }
 };
 
+// 데이터 변경 시 visibleList 초기화
 watch (
     () => data.value,
     () => {

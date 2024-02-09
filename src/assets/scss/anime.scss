@@ -1,11 +1,9 @@
 @mixin  card_fade_in {
     @keyframes card_fade_in {
         0% {
-            transform: translateY(25px);
             opacity: 0;
         }
         100% {
-            transform: translateY(0px);
             opacity: 1;
         }
     }
