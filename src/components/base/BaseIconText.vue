@@ -56,7 +56,7 @@ const isActive = computed(() => {
         <input 
             type="text" 
 
-            class="default__inputText input-row" 
+            class="input-row" 
             :placeholder="props.caption"
 
             @input="onInput"
@@ -77,7 +77,7 @@ const isActive = computed(() => {
     align-items: center;
 
     background-color: rgba(var(--gray-200));
-    border-radius: 20px;
+    border-radius: 1.8vmin;
     border: 2px solid rgba(var(--gray-200));
 
     transition: all 0.225s ease-out;
@@ -94,12 +94,34 @@ input {
     outline: none;
     background-color: inherit;
     padding: 0px 15px;
+
+    font-weight: 500;
+    font-size: 1.8vmin;
 }
 
 .icon {
-    font-size: 25px;
+    font-size: 2.4vmin;
     padding: 0px 10px;
     border-right: 1px solid black;
+}
+
+
+// ---------------------- Phone ----------------------
+
+@media screen and (max-width: 1024px) {
+
+.inputicon-container {
+    border-radius: 1.8vmax;
+}
+
+input {
+    font-size: 1.9vmax;
+}
+
+.icon {
+    font-size: 2.4vmax;
+}
+
 }
 
 </style>

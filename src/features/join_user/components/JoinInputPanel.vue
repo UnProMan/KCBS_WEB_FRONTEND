@@ -142,7 +142,7 @@ const { mutate } = useJoinUserMutation();
 
 <template>
     
-    <div class="input-container layout__flexColumn">
+    <div class="input-container layout__flexColumn scrollbar">
         <BaseText width="100%" caption="학번" numberFilter="1" v-model:value="studentId" />
         <BaseText width="100%" caption="이름" v-model:value="name" />
         <BaseText width="100%" caption="이메일" v-model:value="email" />
@@ -159,20 +159,29 @@ const { mutate } = useJoinUserMutation();
 <style lang="scss" scoped>
 
 .input-container {
+    padding-top: 10px;
+}
+
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) { 
+
+.input-container {
     gap: 35px;
 }
 
-@media screen and (max-height: 950px) {
-    .input-container {
-        gap: 20px;
-    }
 }
 
-.birthday-inputs {
-    display: flex;
-    align-items: center;
 
-    gap: 10px;
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.input-container {
+    gap: 20px;
 }
 
-</style>../composables/useJoinUserMutation
+}
+
+</style>

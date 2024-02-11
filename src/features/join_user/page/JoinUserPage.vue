@@ -7,9 +7,9 @@ import JoinInputPanel from '../components/JoinInputPanel.vue';
 <template>
 
     <BaseCard class="join-container layout__flexColumn" >
-        <div class="default__title1 title">회원가입</div>
+        <div class="title">회원가입</div>
 
-        <JoinInputPanel style="flex: 4;" />
+        <JoinInputPanel/>
     </BaseCard>
 
 </template>
@@ -17,22 +17,59 @@ import JoinInputPanel from '../components/JoinInputPanel.vue';
 <style lang="scss" scoped>
 @import '@/assets/scss/anime.scss';
 
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) { 
+
 .join-container {
     width: 35%;
-    height: 78%;
+    height: 85%;
 
-    justify-content: space-between;
+    justify-content: center;
+    gap: 25px;
 
-    padding: 28px 50px;
+    padding: 15px 50px;
 
     @include card_fade_in;
 }
 
 .title {
-    flex: 1;
+    font-weight: 800;
+    font-size: 4.5vmin;
 
     text-align: center;
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.join-container {
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 25px 40px;
+
+    @include card_fade_in;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 4.5vmax;
+
+    text-align: center;
+
     padding-top: 15px;
+}
+
 }
 
 </style>

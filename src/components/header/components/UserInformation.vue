@@ -16,14 +16,14 @@ const userStore = useUserStore();
         class="info-container"
     >
         <div class="img-container">
-            <img :src="formatImageURL(userStore.user.file_ID)" width="45px" height="45px" />
+            <img :src="formatImageURL(userStore.user.file_ID)"/>
         </div>
 
         <div class="layout__flexColumn">
-            <div class="role default__subtitle3">
+            <div class="role">
                 {{ userRoleMap.get(userStore.user.role) }}
             </div>
-            <div class="name default__title4">
+            <div class="name">
                 {{ userStore.user.name }}
             </div>
         </div>
@@ -31,7 +31,7 @@ const userStore = useUserStore();
 
     <div
         v-else
-        class="default__title4"
+        class="nonMebers"
         style="color: white;"
     >
         비회원
@@ -40,6 +40,10 @@ const userStore = useUserStore();
 </template>
 
 <style lang="scss" scoped>
+
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) {  
 
 .info-container {
     display: flex;
@@ -62,17 +66,64 @@ const userStore = useUserStore();
 
 .img-container {
     overflow: hidden;
-    border-radius: 30px;
-    width: 45px;
-    height: 45px;
+    border-radius: 2.3vw;
+}
+
+.img-container, img {
+    width: 2.3vw;
+    height: 2.3vw;
 }
 
 .role {
+    font-size: 1.6vmin;
+    font-weight: 500;
+
     color: rgba(var(--gray));
 }
 
 .name {
+    font-size: 2.1vmin;
+    font-weight: 800;
+
     color: white;
+}
+
+.nonMebers {
+    font-size: 2.6vmin;
+    font-weight: 800;
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px){ 
+
+.layout__flexColumn {
+    visibility: hidden;
+    display: none;
+}
+
+.img-container {
+    overflow: hidden;
+    border-radius: 3.2vh;
+}
+
+.img-container, img {
+    width: 3.2vh;
+    height: 3.2vh;
+
+    min-width: 25px;
+    min-height: 25px;
+}
+
+.nonMebers {
+    font-size: 4.3vmin;
+    font-weight: 800;
+}
+
 }
 
 </style>

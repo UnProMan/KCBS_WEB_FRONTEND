@@ -31,6 +31,10 @@ if (!userStore.isLogin) {
 <style lang="scss">
 @import '@/assets/scss/global.scss';
 
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) { 
+
 .app-container {
     display: flex;
     width: 100vw;
@@ -43,6 +47,29 @@ if (!userStore.isLogin) {
     background-color: white;
     border-bottom-left-radius: 40px;
     border-top-left-radius: 40px;
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) { 
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(var(--dark-gray));
+}
+
+.main-container {
+    background-color: white;
+}
+
 }
 
 </style>

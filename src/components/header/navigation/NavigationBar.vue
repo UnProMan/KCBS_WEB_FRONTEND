@@ -19,7 +19,7 @@ const props = defineProps<Props>();
 <template>
 
     <div 
-        class="navi-container default__navigationBar"
+        class="navi-container"
         :class="{ 'navi-container--active': props.active }"
     >
         <BaseIcon
@@ -35,13 +35,20 @@ const props = defineProps<Props>();
 
 <style lang="scss" scoped>
 
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) {
+
 .navi-container {
     display: flex;
     align-items: center;
     gap: 4px;
 
+    font-size: 2.2vmin;
+    font-weight: 550;
+
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 1.4vmin;
 
     color: white;
 
@@ -62,7 +69,45 @@ const props = defineProps<Props>();
 }
 
 .icon {
-    font-size: 35px;
+    font-size: 3.1vmin;
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.navi-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    font-size: 2.2vmax;
+    font-weight: 550;
+
+    padding: 8px;
+    border-radius: 1.4vmax;
+
+    color: white;
+
+    user-select: none;
+    cursor: pointer;
+    
+    transition: all 0.225s ease-out;
+
+    &--active {
+        background: white;
+        color: black;
+    }
+}
+
+.icon {
+    font-size: 2.6vmax;
+}
+
 }
 
 </style>

@@ -53,7 +53,6 @@ const onInput = (event: Event) => {
                 
                 id="fname"
                 name="fname"
-                class="default__inputText"
                 
                 autocomplete="off"
                 
@@ -69,7 +68,7 @@ const onInput = (event: Event) => {
             <div class="pseudo-placeholder-text">
                 <label for="fname" id="placeholder-fname" class="placeholder-text">
                     <div 
-                        class="text default__placeholder"
+                        class="text"
                         :class="{ 'text--active': isActive }"    
                     >
                         {{ props.caption }}
@@ -107,6 +106,9 @@ $border-color: rgba(var(--blue));
 }
 
 input {
+    font-weight: 500;
+    font-size: 1.8vmin;
+
     width: v-bind(width);
     border: none;
 
@@ -140,6 +142,9 @@ input[type=password]{
 }
 
 .text {
+    font-weight: 500;
+    font-size: 1.8vmin;
+
     padding: 0 2px;
 
     background-color: transparent;
@@ -150,12 +155,12 @@ input[type=password]{
         background-color 0.2s ease-out, color 0.15s ease-out;
 
     &--active {
-        font-size: 0.8rem;
+        font-size: 1.2vmin;
         
         background-color: white;
         color: $border-color;
 
-        transform: translate(-3%, -150%);
+        transform: translate(-3%, -2.5vmin);
     }
 }
 
@@ -163,6 +168,26 @@ input,
 .pseudo-placeholder-text {
     padding: 0 4px;
     padding-bottom: 1px;
+}
+
+
+// ---------------------- Phone ----------------------
+
+@media screen and (max-width: 1024px) {
+    
+input,
+.text {
+    font-size: 1.9vmax;
+}
+
+.text {
+    &--active {
+        font-size: 1.5vmax;
+
+        transform: translate(-3%, -2.6vmax);
+    }
+}
+
 }
 
 </style>

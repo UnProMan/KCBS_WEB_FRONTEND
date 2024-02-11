@@ -20,7 +20,6 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
 <template>
     <div>
         <button
-            class="default__button"
             :disabled="props.disabled"
             :class="{
                 disabled: props.disabled,
@@ -50,6 +49,9 @@ button {
 
     cursor: pointer;
     user-select: none;
+
+    font-weight: 500;
+    font-size: 1.7vmin;
 
     background: transparent;
 }
@@ -143,6 +145,17 @@ button.elevation.disabled {
     color: rgb(va(--gray));
     background-color: rgba(var(--gray) / 0.4);
     box-shadow: none;
+}
+
+
+/* --------------------- Phone ---------------------- */
+
+@media screen and (max-width: 1024px) {
+
+button {
+    font-size: 1.7vmax;
+}
+
 }
 
 </style>

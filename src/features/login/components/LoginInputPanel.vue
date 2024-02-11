@@ -45,10 +45,29 @@ const { refetch } = useLoginUserQuery(requestData);
 
 <style lang="scss" scoped>
 
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) {  
+
 .input-container {
     flex: 2.5;
 
     gap: 50px;
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.input-container {
+    // flex: 2.5;
+    gap: 40px;
+}
+
 }
 
 </style>

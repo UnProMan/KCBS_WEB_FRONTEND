@@ -35,7 +35,7 @@ const isTransparentColor = ():boolean => props.transparent;
         >
         </i>
 
-        <div class="default__subtitle3">
+        <div class="message">
             {{ props.message }}
         </div>
     </BaseCard>
@@ -43,6 +43,10 @@ const isTransparentColor = ():boolean => props.transparent;
 </template>
 
 <style lang="scss" scoped>
+
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) { 
 
 .youtube-container {
     justify-content: center;
@@ -69,6 +73,47 @@ const isTransparentColor = ():boolean => props.transparent;
         -webkit-background-clip: text;
         color: transparent;
     }
+}
+
+.message {
+    font-weight: 500;
+    font-size: 1.7vmin;
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.youtube-container {
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    user-select: none;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 9vmax;
+    color: v-bind(color);
+
+    &-transparent {
+        background-image: v-bind(color);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+.message {
+    font-weight: 400;
+    font-size: 1.4vmax;
+}
+
 }
 
 </style>

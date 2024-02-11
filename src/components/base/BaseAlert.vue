@@ -40,12 +40,12 @@ const handleOkayClick = computed(() =>
     
     <div class="background layout__center" @click.self="handleIsAlertClick">
         <div class="alert_container layout__flexColumn" >
-            <div class="header default__subtitle1">
+            <div class="header">
                 <BaseIcon :name="icon" fill="1" weight="700" class="icon" />
                 {{ content.title }}
             </div>
 
-            <div class="body default__subtitle3">
+            <div class="body">
                 {{ content.message }}
             </div>
 
@@ -105,8 +105,11 @@ const handleOkayClick = computed(() =>
     align-items: center;
     gap: 8px;
 
+    font-weight: 700;
+    font-size: 2.1vmin;
+
     .icon {
-        font-size: 32px;
+        font-size: 2.8vmin;
         color: v-bind(color);
     }    
 }
@@ -116,6 +119,35 @@ const handleOkayClick = computed(() =>
     justify-content: right;
 
     gap: 4px;
+}
+
+.body {
+    font-weight: 500;
+    font-size: 1.6vmin;
+}
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.alert_container {
+    width: 70%;
+    height: 20%;
+}
+
+.header {
+    font-size: 2.3vmax;
+
+    .icon {
+        font-size: 2.8vmax;
+    }
+}
+
+.body {
+    font-size: 1.6vmax;
+}
+
 }
 
 </style>

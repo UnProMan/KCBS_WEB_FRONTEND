@@ -92,17 +92,13 @@ const handleIcon = (value: number): void => {
  * 이 함수가 true일 경우 화면에 보여줌
  * false일 경우 하면에 안보임
  */
-const isVisible = (value: number): boolean => {
-    return visibleList.value.indexOf(value) === -1;
-};
+const isVisible = (value: number): boolean =>
+    visibleList.value.indexOf(value) === -1;;
 
-const iconName = (value: number): string => {
-    if (isVisible(value)) {
-        return 'expand_less';
-    } else {
-        return 'expand_more';
-    }
-};
+
+const iconName = (value: number): string => 
+    isVisible(value) ? 'expand_less' : 'expand_more';
+
 
 // 데이터 변경 시 visibleList 초기화
 watch (
@@ -122,8 +118,8 @@ watch (
 
                 <div v-if="kisuCheck(item.kisu)" class="kisu-panel">
                     <div class="text-panel">
-                        <p class="default__subtitle1">{{ item.kisu }}기</p>
-                        <p class="default__subtitle3 peopleNumber">{{ countKisu(item.kisu) }}명</p>
+                        <p class="kisu-text">{{ item.kisu }}기</p>
+                        <p class="peopleNumber">{{ countKisu(item.kisu) }}명</p>
                     </div>
 
                     <BaseIcon 
@@ -156,16 +152,20 @@ watch (
 
 <style lang="scss" scoped>
 
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) { 
+
 .personal-container {
     width: 100%;
     height: 82vh;
 }
 
 .kisu-panel {
-    height: 65px;
+    height: 5.8vh;
     padding: 0px 20px;
 
-    border-radius: 22px;
+    border-radius: 1.6vh;
     background-color: rgba(var(--gray-300));    
 
     display: flex;
@@ -181,7 +181,70 @@ watch (
     gap: 30px;
 }
 
+.kisu-text {
+    font-weight: 500;
+    font-size: 1.9vmin;
+}
+
 .peopleNumber {
+    font-size: 1.5vmin;
+    color: rgba(var(--gray));
+}
+
+.icon {
+    font-size: 2.3vmin;
+}
+
+.item-enter-active,
+.item-leave-active {
+    transition: all 0.5s ease;
+}
+.item-enter-from,
+.item-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.personal-container {
+    width: 100%;
+    height: 75vh;
+}
+
+.kisu-panel {
+    height: 5.8vh;
+    padding: 0px 20px;
+
+    border-radius: 1.6vh;
+    background-color: rgba(var(--gray-300));    
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    user-select: none;
+}
+
+.text-panel {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.kisu-text {
+    font-weight: 500;
+    font-size: 1.9vmax;
+}
+
+.peopleNumber {
+    font-size: 1.5vmax;
     color: rgba(var(--gray));
 }
 
@@ -197,6 +260,8 @@ watch (
 .item-leave-to {
     opacity: 0;
     transform: translateY(-20px);
+}
+
 }
 
 </style>

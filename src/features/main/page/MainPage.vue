@@ -26,13 +26,13 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 				<GoHomePage
 					iconName="fa-brands fa-instagram"
 					href="https://www.instagram.com/koreatech_kcbs"	
-					message="KCBS Facebook"
+					message="KCBS Instagram"
 					color="radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)"
 					transparent='true'
 				/>
 			</div>
 
-			<Clock/>
+			<Clock class="clock-view" />
 		</div>
 		
 		<Welcome/>
@@ -42,6 +42,10 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 <style lang="scss" scoped>
 @import '@/assets/scss/anime.scss';
+
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) { 
 
 .mainpage-container {
 	display: grid;
@@ -75,12 +79,36 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 	height: 70%;
 }
 
-// iframe {
-// 	border-radius: 16px;
-// 	box-shadow: 0px 4px 12px rgba(var(--gray) / 0.5);
+}
 
-// 	width: 100%;
-// 	height: 100%;
-// }
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.mainpage-container {
+	display: grid;
+	grid-template-rows: 1fr 3fr;
+	gap: 20px;
+
+	width: 80%;
+	height: 85%;
+
+	@include card_fade_in;
+}
+
+.homepage-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
+.clock-view {
+	visibility: hidden;
+	display: none;
+}
+
+}
 
 </style>

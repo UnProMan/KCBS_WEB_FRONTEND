@@ -6,8 +6,8 @@ import NavigationLink from '../navigation/NavigationLink.vue';
 
 <template>
 
-    <div class="header-container layout__flexColumn">
-        <TheLogo/>
+    <div class="header-container">
+        <TheLogo class="logo" />
         <NavigationLink/>
         <UserInformation/>
     </div>
@@ -16,12 +16,45 @@ import NavigationLink from '../navigation/NavigationLink.vue';
 
 <style lang="scss" scoped>
 
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) {  
+
 .header-container {
     flex: 1;
 
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
     padding: 30px 22px;
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) { 
+
+.logo {
+    visibility: hidden;
+    display: none;
+}
+
+.header-container {
+    height: 5%;
+    min-height: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px 10px;
+}
+
+
 }
 
 </style>

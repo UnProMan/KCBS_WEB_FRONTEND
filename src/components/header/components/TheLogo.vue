@@ -5,12 +5,7 @@ import BaseIcon from '@/components/base/BaseIcon.vue';
 
 <template>
     
-    <div class="logo-container default__title1">
-        <BaseIcon
-            name="cell_tower"
-            class="icon"
-            weight="700"
-        />
+    <div class="logo-container">
         KCBS
     </div>
 
@@ -19,18 +14,16 @@ import BaseIcon from '@/components/base/BaseIcon.vue';
 <style lang="scss" scoped>
 
 .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    // display: flex;
+    // align-items: center;
+    // gap: 5px;
 
     color: white;
 
     user-select: none;
+    
     font-weight: 800;
-}
-
-.icon {
-    font-size: 50px;
+    font-size: 5vmin;
 }
 
 </style>

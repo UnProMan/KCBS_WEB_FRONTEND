@@ -66,12 +66,12 @@ const isActive = (id: number) => {
     <div class="person-container">
         <div class="left-userinfo">
             <div class="img-container">
-                <img :src="formatImageURL(props.info.file_ID)" width="50px" height="50px" >
+                <img :src="formatImageURL(props.info.file_ID)" >
             </div>
 
             <div>
-                <p class="default__subtitle2">{{ props.info.name }}</p>
-                <p class="default__normalFont1">{{ userRoleMap.get(props.info.role) }}</p>
+                <p class="name-text">{{ props.info.name }}</p>
+                <p class="role-text">{{ userRoleMap.get(props.info.role) }}</p>
             </div>
         </div>
 
@@ -92,15 +92,19 @@ const isActive = (id: number) => {
 
 <style lang="scss" scoped>
 
+// ---------------------- PC ----------------------
+
+@media screen and (min-width: 1025px) { 
+
 .person-container {
-    height: 65px;
+    height: 6vh;
     padding: 13px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border-radius: 30px;
+    border-radius: 1.6vh;
 
     transition: all 0.225s ease-out;
 
@@ -118,12 +122,21 @@ const isActive = (id: number) => {
 
 .img-container {
     overflow: hidden;
-    border-radius: 30px;
-    width: 50px;
-    height: 50px;
+    border-radius: 4.7vh;
 }
 
-.default__normalFont1 {
+.img-container, img {
+    width: 4.7vh;
+    height: 4.7vh;
+}
+
+.name-text {
+    font-weight: 500;
+    font-size: 1.8vmin;
+}
+
+.role-text {
+    font-size: 1.6vmin;
     color: rgba(var(--gray));
 }
 
@@ -134,9 +147,11 @@ const isActive = (id: number) => {
 
 .departments {
     border: 1px solid v-bind(randomColor);
-    border-radius: 20px;
+    border-radius: 1.8vmin;
 
     padding: 5px 10px;
+
+    font-size: 1.5vmin;
 
     color: v-bind(randomColor);
     background-color: white;
@@ -155,6 +170,83 @@ const isActive = (id: number) => {
         background-color: v-bind(randomColor);
         color: white;
     }
+}
+
+}
+
+
+// ---------------------- Phone ----------------------
+
+
+@media screen and (max-width: 1024px) {
+
+.person-container {
+    height: 6.3vh;
+    padding: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 1.8vh;
+
+    transition: all 0.225s ease-out;
+}
+
+.left-userinfo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.img-container {
+    overflow: hidden;
+    border-radius: 4.7vh;
+}
+
+.img-container, img {
+    width: 4.7vh;
+    height: 4.7vh;
+}
+
+.name-text {
+    font-weight: 500;
+    font-size: 1.8vmax;
+}
+
+.role-text {
+    font-size: 1.6vmax;
+    color: rgba(var(--gray));
+}
+
+.departments-container {
+    display: flex;
+    gap: 5px;
+}
+
+.departments {
+    border: 1px solid v-bind(randomColor);
+    border-radius: 1.8vmax;
+
+    padding: 5px 10px;
+
+    font-size: 1.5vmax;
+
+    color: v-bind(randomColor);
+    background-color: white;
+
+    transition: all 0.225s ease-out;
+
+    user-select: none;
+    cursor: pointer;
+
+    &--active {
+        background-color: v-bind(randomColor);
+        color: white;
+    }
+}
+
 }
 
 </style>
