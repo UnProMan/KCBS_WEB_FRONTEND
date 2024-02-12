@@ -2,11 +2,7 @@
 import BaseCard from '@/components/base/BaseCard.vue';
 import GoHomePage from '../components/GoHomePage.vue';
 import Clock from '../components/Clock.vue';
-import ShowDateTime from '../components/ShowDateTime.vue';
 import Welcome from '../components/Welcome.vue';
-
-import { QuillEditor } from '@vueup/vue-quill';
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 </script>
 
