@@ -3,7 +3,7 @@ import usePersonalStatusUserQuery from '../composables/usePersonalStatusUsersQue
 import PersonItem from './PersonItem.vue';
 import BaseSpinner from '@/components/base/BaseSpinner.vue';
 import type { PersonalStatusUsers, PersonalStatusRequest } from '@/model/User';
-import { ref, computed, watch, type Ref } from 'vue';
+import { ref, computed, watch } from 'vue';
 import BaseIcon from '@/components/base/BaseIcon.vue';
 
 interface Props {
@@ -38,7 +38,7 @@ const requestData = computed<PersonalStatusRequest>(() => ({
 const { data } = usePersonalStatusUserQuery(requestData);
 
 // 이 리스트에 존재하는 기수는 보이지 않음
-const visibleList: Ref<number[]> = ref([]);
+const visibleList = ref<number[]>([]);
 
 /**
  * Methods

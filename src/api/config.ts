@@ -30,7 +30,7 @@ axiosInstance.interceptors.request.use(
     (response) => {
       //응답에 대한 로직
 
-      const new_access_token = response.headers.get('New-Access-Token');
+      const new_access_token = response.headers['New-Access-Token'];
 
       if (new_access_token) {
         useUserStore().setNewAccessToken(new_access_token);

@@ -12,11 +12,11 @@ const detailUser = ref<PersonalStatusUsers>();
 /**
  * 텍스트 필드의 정보 저장하는 변수
  */
-const searchText = ref<String>('');
+const searchText = ref<string>('');
 /**
  * PersonalStatus에 Props로 데이터를 전달하는 변수
  */
-const propsData = ref<String>('');
+const propsData = ref<string>('');
 
 const isShow = computed((): boolean => 
     !!detailUser.value
@@ -62,7 +62,6 @@ const changedWidth = (type: 'text' | 'button'): string => {
                     :height="changedHeight()"
                     icon="search"
                     caption="이름 검색"
-                    class="searchText"
                     v-model:value="searchText"
                     @keyup.enter="handleSearch"
                 />

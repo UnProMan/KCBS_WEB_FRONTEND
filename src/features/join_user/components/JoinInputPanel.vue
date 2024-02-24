@@ -8,13 +8,13 @@ import api from "@/api/index";
 import useJoinUserMutation from '../composables/useJoinUserMutation';
 import { formatDate, formatPhoneNumber } from '@/components/functions/formatFunc';
 
-const studentId = ref<String>('');
-const name = ref<String>('');
-const email = ref<String>('');
-const password = ref<String>('');
-const password_check = ref<String>('');
-const birthday = ref<String>('');
-const phone_number = ref<String>('');
+const studentId = ref<string>('');
+const name = ref<string>('');
+const email = ref<string>('');
+const password = ref<string>('');
+const password_check = ref<string>('');
+const birthday = ref<string>('');
+const phone_number = ref<string>('');
 const kisu = ref<number>( 30 + (new Date().getFullYear() - 2022) ); // 22년도에 30기가 신입국원이였던걸 이용
 
 const joinUserObject = computed<JoinUserRequest>(() => {

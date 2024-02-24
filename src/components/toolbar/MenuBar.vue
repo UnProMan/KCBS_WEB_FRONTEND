@@ -10,6 +10,14 @@ interface Props {
  */
 const props = defineProps<Props>();
 
+interface itemModel {
+    icon: string;
+    title: string;
+    action: () => void;
+    isActive?: () => void;
+    type?: string;
+};
+
 const items = [
     {
         icon: 'format_bold',
@@ -107,7 +115,7 @@ const items = [
         title: 'Redo',
         action: () => props.editor.chain().focus().redo().run(),
     },
-];
+] as itemModel[];
 
 </script>
 
@@ -115,8 +123,15 @@ const items = [
     
   <div>
     <template v-for="(item, index) in items">
-      <div class="divider" v-if="item.type === 'divider'" :key="`divider${index}`" />
-      <MenuItem v-else :key="index" v-bind="item" />
+        <div class="divider" v-if="item.type === 'divider'" :key="`divider${index}`" />
+        <MenuItem 
+            v-else :key="index" 
+            v-bind="item"
+            :icon="item.icon"
+            :title="item.title"
+            :action="item.action || (() => {})"
+            :isActive="item.isActive || (() => {})"
+        />
     </template>
   </div>
 

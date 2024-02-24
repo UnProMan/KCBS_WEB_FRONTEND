@@ -2,7 +2,7 @@
  * yyyyMMdd로 받은 String 형식을
  * Date형식으로 변경
  */
-export const formatDate = (str: String): Date => {
+export const formatDate = (str: string): Date => {
     return new Date(
         parseInt(str.substring(0, 4)),
         parseInt(str.substring(4, 6)) - 1, // 월은 0부터 시작하므로 1을 빼줌
@@ -14,7 +14,7 @@ export const formatDate = (str: String): Date => {
  * 전화번호 형식을
  * 010-0000-0000으로 변경
  */
-export const formatPhoneNumber = (str: String): String =>
+export const formatPhoneNumber = (str: string): string =>
     str.substring(0, 3) + '-' + str.substring(3, 7) + '-' + str.substring(7, 11);
 
 /**
@@ -27,7 +27,7 @@ export const formatImageURL = (str: string): string =>
 /**
  * 날짜를 받으면 'yyyy년 M월 dd일 HH시 mm분 ss초'로 변경해주는 함수 
  */
-export const formatDateTime = (date: Date): String => {
+export const formatDateTime = (date: Date): string => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const dayNum = date.getDate();
