@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import usePersonalStatusUserQuery from '../composables/usePersonalStatusUsersQuery';
+import usePersonalStatusUserQuery from '../composables/usePersonalStatusUsersQuery.ts';
 import PersonItem from './PersonItem.vue';
 import BaseSpinner from '@/components/base/BaseSpinner.vue';
-import type { PersonalStatusUsers, PersonalStatusRequest } from '@/model/User';
+import type { PersonalStatusUsers, PersonalStatusRequest } from '@/model/User.ts';
 import { ref, computed, watch } from 'vue';
 import BaseIcon from '@/components/base/BaseIcon.vue';
 

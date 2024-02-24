@@ -1,7 +1,7 @@
-import api from "@/api/index";
-import type { User } from '@/model/User';
+import api from "@/api/index.ts";
+import type { User } from '@/model/User.ts';
 import { useQuery } from "vue-query";
-import { useUserStore } from "@/store/useUserStore";
+import { useUserStore } from "@/store/useUserStore.ts";
 
 const useRefreshDataQuery = () => {
     const userStore = useUserStore();

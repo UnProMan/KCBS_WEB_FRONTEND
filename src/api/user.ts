@@ -5,7 +5,7 @@ import type {
     PersonalStatusUsers, 
     PersonalStatusRequest 
 } from "@/model/User"
-import axiosInstance from "./config";
+import axiosInstance from "./config.ts";
 
 export const loginUser = async ({ queryParams: params }: LoginRequest) =>
     await axiosInstance.post<User>("/user/login", params);

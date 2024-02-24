@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { PersonalStatusUsers } from '@/model/User';
-import { formatImageURL } from '@/components/functions/formatFunc';
-import { userRoleMap } from '@/model/User';
-import { randomIndex } from '@/components/functions/randomFunc';
+import type { PersonalStatusUsers } from '@/model/User.ts';
+import { formatImageURL } from '@/components/functions/formatFunc.ts';
+import { userRoleMap } from '@/model/User.ts';
+import { randomIndex } from '@/components/functions/randomFunc.ts';
 import { ref, computed } from 'vue';
 
 interface Props {

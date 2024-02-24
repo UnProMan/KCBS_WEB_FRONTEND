@@ -19,6 +19,8 @@
     "lib": [
       "ES2021.String",
       "DOM"
-    ]
+    ],
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   }
 }

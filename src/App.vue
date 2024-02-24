@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import HeaderPage from '@/components/header/page/HeaderPage.vue';
 import BaseAlert from '@/components/base/BaseAlert.vue';
-import { useAlertStore } from '@/store/useAlertStore';
-import { useUserStore } from '@/store/useUserStore';
-import useRefreshDataQuery from '@/features/login/composables/useRefreshDataQuery';
+import { useAlertStore } from '@/store/useAlertStore.ts';
+import { useUserStore } from '@/store/useUserStore.ts';
+import useRefreshDataQuery from '@/features/login/composables/useRefreshDataQuery.ts';
 
 const alertStore = useAlertStore();
 const userStore = useUserStore();

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseText from '@/components/base/BaseText.vue';
-import useLoginUserQuery from '../composables/useLoginUserQuery';
+import useLoginUserQuery from '../composables/useLoginUserQuery.ts';
 import { ref, computed } from 'vue';
-import type { LoginRequest } from '@/model/User';
-import { useAlertStore } from '@/store/useAlertStore';
+import type { LoginRequest } from '@/model/User.ts';
+import { useAlertStore } from '@/store/useAlertStore.ts';
 
 const studentId = ref<string>('');
 const password = ref<string>('');

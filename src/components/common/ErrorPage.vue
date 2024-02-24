@@ -2,7 +2,7 @@
 import BaseIcon from '@/components/base/BaseIcon.vue';
 import BaseButton from '@/components/base/BaseButton.vue';
 import { useRouter } from 'vue-router';
-import { useErrorStore } from '@/store/useErrorStore';
+import { useErrorStore } from '@/store/useErrorStore.ts';
 
 const router = useRouter();
 const error = useErrorStore().getError();

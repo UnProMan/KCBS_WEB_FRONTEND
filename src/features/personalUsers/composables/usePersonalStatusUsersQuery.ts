@@ -1,11 +1,11 @@
-import api from '@/api/index';
-import type { PersonalStatusRequest } from '@/model/User';
+import api from '@/api/index.ts';
+import type { PersonalStatusRequest } from '@/model/User.ts';
 import { useQuery } from 'vue-query';
 import type { AxiosError } from 'axios';
 import { type ComputedRef, computed } from 'vue';
-import { useErrorStore } from '@/store/useErrorStore';
+import { useErrorStore } from '@/store/useErrorStore.ts';
 import { useRouter } from 'vue-router';
-import type { ErrorResponse } from '@/model/Error';
+import type { ErrorResponse } from '@/model/Error.ts';
 
 const usePersonalStatusUserQuery = (req: ComputedRef<PersonalStatusRequest>) => {
     const queryKey = computed(() => req.value.queryParams);

@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { useUserStore } from '@/store/useUserStore';
+import { useUserStore } from '@/store/useUserStore.ts';
 
 const axiosInstance = Axios.create({
     baseURL: '/kcbs/api',

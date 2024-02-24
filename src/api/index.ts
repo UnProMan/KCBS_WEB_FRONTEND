@@ -1,4 +1,4 @@
-import * as user from './user';
+import * as user from './user.ts';
 
 const api = {
     user

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { PersonalStatusUsers } from '@/model/User';
+import type { PersonalStatusUsers } from '@/model/User.ts';
 import BaseCard from '@/components/base/BaseCard.vue';
-import { formatImageURL, formatString } from '@/components/functions/formatFunc';
-import { userRoleMap } from '@/model/User';
+import { formatImageURL, formatString } from '@/components/functions/formatFunc.ts';
+import { userRoleMap } from '@/model/User.ts';
 import { watchEffect, ref, watch } from 'vue';
-import { randomIndex } from '@/components/functions/randomFunc';
+import { randomIndex } from '@/components/functions/randomFunc.ts';
 import BaseIcon from '@/components/base/BaseIcon.vue';
 
 interface Props {

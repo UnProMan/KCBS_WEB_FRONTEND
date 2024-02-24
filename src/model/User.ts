@@ -1,4 +1,4 @@
-import type { Department } from "./Department";
+import type { Department } from "./Department.ts";
 
 export type UserRoleCode =
     | 'ROLE_PRESIDENT'

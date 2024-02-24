@@ -1,4 +1,4 @@
-import { useRouterStore } from "@/store/router";
+import { useRouterStore } from "@/store/router.ts";
 import type { RouteLocationNormalized } from "vue-router";
 
 export function updateActiveDomainName(value: RouteLocationNormalized) {

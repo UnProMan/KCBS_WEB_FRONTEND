@@ -2,11 +2,11 @@
 import BaseCard from '@/components/base/BaseCard.vue';
 import PersonalStatus from '../components/PersonalStatus.vue';
 import DetailsUser from '../components/DetailsUser.vue';
-import type { PersonalStatusUsers } from '@/model/User';
+import type { PersonalStatusUsers } from '@/model/User.ts';
 import { ref, computed } from 'vue';
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseIconText from '@/components/base/BaseIconText.vue';
-import { isDeskTop } from '@/components/functions/windowFunc'; 
+import { isDeskTop } from '@/components/functions/windowFunc.ts'; 
 
 const detailUser = ref<PersonalStatusUsers>();
 /**

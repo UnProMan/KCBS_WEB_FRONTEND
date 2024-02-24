@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useAlertStore } from '@/store/useAlertStore';
-import { useUserStore } from '@/store/useUserStore';
+import { useAlertStore } from '@/store/useAlertStore.ts';
+import { useUserStore } from '@/store/useUserStore.ts';
 import { watch } from 'vue';
 import { useRouter } from 'vue-router';
-import useLogoutUserQuery from './composables/useLogoutUserQuery';
+import useLogoutUserQuery from './composables/useLogoutUserQuery.ts';
 
 const alertStore = useAlertStore();
 const userStore = useUserStore();

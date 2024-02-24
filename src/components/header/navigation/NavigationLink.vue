@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import NavigationBar from './NavigationBar.vue';
-import { navigations } from '@/router/navigation';
-import { useRouterStore } from "@/store/router";
+import { navigations } from '@/router/navigation.ts';
+import { useRouterStore } from "@/store/router.ts";
 import { useRouter } from 'vue-router';
-import { useUserStore } from '@/store/useUserStore';
+import { useUserStore } from '@/store/useUserStore.ts';
 import BaseIcon from '@/components/base/BaseIcon.vue';
 import { ref, computed } from 'vue';
-import { isDeskTop } from '@/components/functions/windowFunc';
+import { isDeskTop } from '@/components/functions/windowFunc.ts';
 
 /* Setting */
 

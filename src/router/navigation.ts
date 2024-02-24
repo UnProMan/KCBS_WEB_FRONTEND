@@ -1,4 +1,4 @@
-import type { UserRole } from "@/model/User";
+import type { UserRole } from "@/model/User.ts";
 import type { RouteComponent } from "vue-router";
 
 export interface Navigation {

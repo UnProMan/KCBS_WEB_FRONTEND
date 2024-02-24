@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useUserStore } from '@/store/useUserStore';
-import { userRoleMap } from '@/model/User';
-import type { UserRoleCode } from '@/model/User';
-import { formatImageURL } from '@/components/functions/formatFunc';
+import { useUserStore } from '@/store/useUserStore.ts';
+import { userRoleMap } from '@/model/User.ts';
+import type { UserRoleCode } from '@/model/User.ts';
+import { formatImageURL } from '@/components/functions/formatFunc.ts';
 import BaseIcon from '@/components/base/BaseIcon.vue';
 
 const userStore = useUserStore();

@@ -2,7 +2,7 @@
 import BaseIcon from './BaseIcon.vue';
 import BaseButton from './BaseButton.vue';
 import { computed } from 'vue';
-import { useAlertStore } from '@/store/useAlertStore';
+import { useAlertStore } from '@/store/useAlertStore.ts';
 import { storeToRefs } from 'pinia';
 
 const content = useAlertStore().getContent()!;

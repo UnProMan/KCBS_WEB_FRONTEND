@@ -1,12 +1,12 @@
-import api from '@/api/index';
-import type { JoinUserRequest } from '@/model/User';
+import api from '@/api/index.ts';
+import type { JoinUserRequest } from '@/model/User.ts';
 import { useMutation } from 'vue-query';
 import { useRouter } from 'vue-router';
 import { type ComputedRef } from 'vue';
 import type { AxiosError } from 'axios';
-import type { ErrorResponse } from '@/model/Error';
-import { useAlertStore } from '@/store/useAlertStore';
-import { useErrorStore } from '@/store/useErrorStore';
+import type { ErrorResponse } from '@/model/Error.ts';
+import { useAlertStore } from '@/store/useAlertStore.ts';
+import { useErrorStore } from '@/store/useErrorStore.ts';
 
 
 const useJoinUserMutation = () => {

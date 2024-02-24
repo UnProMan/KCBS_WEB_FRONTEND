@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from 'vue';
-import type { Alert } from '@/model/Alert';
+import type { Alert } from '@/model/Alert.ts';
 
 export const useAlertStore = defineStore("alert-store", () => {
     const isAlert = ref<boolean>(false); 

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from 'vue';
-import type { ErrorResponse } from "@/model/Error";
+import type { ErrorResponse } from "@/model/Error.ts";
 
 export const useErrorStore = defineStore("error-store", () => {
     const error = ref<ErrorResponse>();

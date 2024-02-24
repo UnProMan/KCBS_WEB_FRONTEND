@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseText from '@/components/base/BaseText.vue';
-import type { JoinUserRequest } from '@/model/User';
+import type { JoinUserRequest } from '@/model/User.ts';
 import { ref, computed } from 'vue';
-import { useAlertStore } from '@/store/useAlertStore';
-import api from "@/api/index";
-import useJoinUserMutation from '../composables/useJoinUserMutation';
-import { formatDate, formatPhoneNumber } from '@/components/functions/formatFunc';
+import { useAlertStore } from '@/store/useAlertStore.ts';
+import api from "@/api/index.ts";
+import useJoinUserMutation from '../composables/useJoinUserMutation.ts';
+import { formatDate, formatPhoneNumber } from '@/components/functions/formatFunc.ts';
 
 const studentId = ref<string>('');
 const name = ref<string>('');

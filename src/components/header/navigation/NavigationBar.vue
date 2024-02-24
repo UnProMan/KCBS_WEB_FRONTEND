@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UserRole } from "@/model/User";
+import type { UserRole } from "@/model/User.ts";
 import BaseIcon from '@/components/base/BaseIcon.vue';
 
 interface Props {

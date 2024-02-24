@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router';
-import { navigations } from './navigation';
-import { updateActiveDomainName } from './navigationGuide';
-import { useUserStore } from '@/store/useUserStore';
+import { navigations } from './navigation.ts';
+import { updateActiveDomainName } from './navigationGuide.ts';
+import { useUserStore } from '@/store/useUserStore.ts';
 
 const generatedNavigations = navigations.flatMap(
     ({id, path, component}) => {

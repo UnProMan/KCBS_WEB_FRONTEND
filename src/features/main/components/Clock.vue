@@ -1,5 +1,5 @@
 <script setup>
-import { formatDateTime } from '@/components/functions/formatFunc';
+import { formatDateTime } from '@/components/functions/formatFunc.ts';
 import BaseCard from '@/components/base/BaseCard.vue';
 
 const deg = 6;

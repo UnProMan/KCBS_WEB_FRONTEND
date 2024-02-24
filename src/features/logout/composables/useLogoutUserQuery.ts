@@ -1,8 +1,8 @@
-import api from '@/api/index';
+import api from '@/api/index.ts';
 import { useQuery } from 'vue-query';
 import { storeToRefs } from 'pinia';
-import { useAlertStore } from '@/store/useAlertStore';
-import { useUserStore } from '@/store/useUserStore';
+import { useAlertStore } from '@/store/useAlertStore.ts';
+import { useUserStore } from '@/store/useUserStore.ts';
 
 const useLogoutUserQuery = () => {
     const { isAlert } = storeToRefs(useAlertStore());
