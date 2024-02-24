@@ -18,11 +18,11 @@ const handleGoHome = () => {
     <div class="error-container layout__flexColumn">
         <div class="header">
             <BaseIcon name="error" class="icon" weight="700" />
-            <div class="error-status">{{ error.httpStatus }} ERROR</div>
+            <div class="error-status">{{ error ? error.httpStatus : '' }} ERROR</div>
         </div>
 
-        <div class="error-code">{{ error.code }}</div>
-        <div class="error-message">{{ error.message }}</div>
+        <div class="error-code">{{ error ? error.code : '' }}</div>
+        <div class="error-message">{{ error ? error.message : '에러가 발생하였습니다.' }}</div>
 
         <BaseButton class="button" color="var(--red-500)" size="large" @click="handleGoHome">
             <BaseIcon name="home" class="btn-icon" weight="700" />

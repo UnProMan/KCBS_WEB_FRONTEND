@@ -36,7 +36,7 @@ const { refetch } = useLoginUserQuery(requestData);
 <template>
     
      <div class="input-container layout__flexColumn">
-        <BaseText width="100%" caption="학번" v-model:value="studentId" numberFilter="1" />
+        <BaseText width="100%" caption="학번" v-model:value="studentId" :numberFilter="true" />
         <BaseText width="100%" caption="비밀번호" v-model:value="password" type="password" />
         <BaseButton width="100%" @click="handlerLoginButton" >로그인</BaseButton>
     </div>

@@ -15,7 +15,7 @@ const password = ref<String>('');
 const password_check = ref<String>('');
 const birthday = ref<String>('');
 const phone_number = ref<String>('');
-const kisu = ref<Number>( 30 + (new Date().getFullYear() - 2022) ); // 22년도에 30기가 신입국원이였던걸 이용
+const kisu = ref<number>( 30 + (new Date().getFullYear() - 2022) ); // 22년도에 30기가 신입국원이였던걸 이용
 
 const joinUserObject = computed<JoinUserRequest>(() => {
     return {
@@ -24,9 +24,9 @@ const joinUserObject = computed<JoinUserRequest>(() => {
         email: email.value,
         password: password.value,
         birthday: formatDate(birthday.value),
-        phone_number: formatPhoneNumber(phone_number.value),
+        phone_Number: formatPhoneNumber(phone_number.value),
         kisu: Number(kisu.value)
-    }
+    };
 });
 
 /* Methods */
@@ -143,14 +143,14 @@ const { mutate } = useJoinUserMutation();
 <template>
     
     <div class="input-container layout__flexColumn scrollbar">
-        <BaseText width="100%" caption="학번" numberFilter="1" v-model:value="studentId" />
+        <BaseText width="100%" caption="학번" :numberFilter="true" v-model:value="studentId" />
         <BaseText width="100%" caption="이름" v-model:value="name" />
         <BaseText width="100%" caption="이메일" v-model:value="email" />
         <BaseText width="100%" caption="비밀번호 (문자, 숫자, 특수문자 포함 8~20자)" type="password" v-model:value="password" />
         <BaseText width="100%" caption="비밀번호 확인" type="password" v-model:value="password_check" />
-        <BaseText width="100%" caption="생년월일 (YYYYMMDD)" numberFilter="1" v-model:value="birthday" />
-        <BaseText width="100%" caption="전화번호 ('-' 제외 11자리 입력)" numberFilter="1" v-model:value="phone_number" />
-        <BaseText width="100%" caption="기수" numberFilter="1" v-model:value="kisu" />
+        <BaseText width="100%" caption="생년월일 (YYYYMMDD)" :numberFilter="true" v-model:value="birthday" />
+        <BaseText width="100%" caption="전화번호 ('-' 제외 11자리 입력)" :numberFilter="true" v-model:value="phone_number" />
+        <BaseText width="100%" caption="기수" :numberFilter="true" v-model:value="kisu" />
         <BaseButton width="100%" @click="handlerJoinButton" >회원가입</BaseButton>
     </div>
 

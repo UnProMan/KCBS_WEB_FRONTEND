@@ -8,7 +8,7 @@ import BaseButton from '@/components/base/BaseButton.vue';
 import BaseIconText from '@/components/base/BaseIconText.vue';
 import { isDeskTop } from '@/components/functions/windowFunc'; 
 
-const detailUser = ref<PersonalStatusUsers>(null);
+const detailUser = ref<PersonalStatusUsers>();
 /**
  * 텍스트 필드의 정보 저장하는 변수
  */
@@ -91,7 +91,7 @@ const changedWidth = (type: 'text' | 'button'): string => {
                     :info="detailUser"
                     class="details"
                     v-model:value="detailUser"
-                    v-if="isShow"
+                    v-if="isShow && detailUser"
                 />
             </TransitionGroup>
         </div>

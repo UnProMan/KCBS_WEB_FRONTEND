@@ -49,7 +49,7 @@ const randomColor = color[randomIndex(color.length)];
  */
 const selectDepartment = (id: number) => {
     if (isActive(id)) {
-        emits('update:value', null);
+        emits('update:value', 0);
     } else {
         emits('update:value', id);
     }

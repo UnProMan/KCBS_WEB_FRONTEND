@@ -5,7 +5,7 @@ import { computed } from 'vue';
 import { useAlertStore } from '@/store/useAlertStore';
 import { storeToRefs } from 'pinia';
 
-const content = useAlertStore().getContent();
+const content = useAlertStore().getContent()!;
 const { isAlert, isOkay } = storeToRefs(useAlertStore());
 
 const color = computed(() => {
@@ -22,23 +22,23 @@ const icon = computed(() => {
 /**
  * Alert 창 끄는 버튼
  */
-const handleIsAlertClick = computed(() =>
+const handleIsAlertClick = computed((): void => {
     isAlert.value = false
-);
+});
 
 /**
  * Yes 버튼 클릭 시
  * 상태정보 저장하는 버튼
  */
-const handleOkayClick = computed(() => 
+const handleOkayClick = computed((): void => {
     isOkay.value = true
-);
+});
 
 </script>
 
 <template>
     
-    <div class="background layout__center" @click.self="handleIsAlertClick">
+    <div class="background layout__center" @click.self="{handleIsAlertClick}">
         <div class="alert_container layout__flexColumn" >
             <div class="header">
                 <BaseIcon :name="icon" fill="1" weight="700" class="icon" />
@@ -51,7 +51,7 @@ const handleOkayClick = computed(() =>
 
             <div class="footer">
                 <BaseButton 
-                    :color="[content.type === 'error' ? 'var(--red-500)' : 'var(--blue)']"
+                    :color="content.type === 'error' ? 'var(--red-500)' : 'var(--blue)'"
                     @click="[
                         content.type === 'question'
                         ? handleOkayClick
@@ -67,7 +67,7 @@ const handleOkayClick = computed(() =>
                     @click="[
                         content.type === 'question'
                         ? handleIsAlertClick
-                        : none
+                        : null
                     ]"
                 >
                     취소

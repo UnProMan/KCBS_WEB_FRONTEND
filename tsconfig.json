@@ -12,5 +12,13 @@
     "target": "es6",
     "module": "commonjs",
     "types": ["vite/client"],
+    "allowJs": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": [
+      "ES2021.String",
+      "DOM"
+    ]
   }
 }

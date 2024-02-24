@@ -12,7 +12,7 @@ const userStore = useUserStore();
 <template>
 
     <div 
-        v-if="userStore.isLogin"
+        v-if="userStore.user"
         class="info-container"
     >
         <div class="img-container">

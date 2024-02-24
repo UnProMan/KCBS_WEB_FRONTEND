@@ -2,8 +2,8 @@
 import usePersonalStatusUserQuery from '../composables/usePersonalStatusUsersQuery';
 import PersonItem from './PersonItem.vue';
 import BaseSpinner from '@/components/base/BaseSpinner.vue';
-import type { PersonalStatusUser, PersonalStatusRequest } from '@/model/User';
-import { ref, computed, watch } from 'vue';
+import type { PersonalStatusUsers, PersonalStatusRequest } from '@/model/User';
+import { ref, computed, watch, type Ref } from 'vue';
 import BaseIcon from '@/components/base/BaseIcon.vue';
 
 interface Props {
@@ -18,15 +18,15 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const emits = defineEmits<{
-    (e: 'update:value', value: PersonalStatusUser): void;
+    (e: 'update:value', value: PersonalStatusUsers): void;
 }>();
 
 
 /**
  * Data
  */
-const kisu = ref<number>(null);
-const department = ref<number>(null);
+const kisu = ref<number>(0);
+const department = ref<number>(0);
 
 const requestData = computed<PersonalStatusRequest>(() => ({
     queryParams: {
@@ -38,13 +38,13 @@ const requestData = computed<PersonalStatusRequest>(() => ({
 const { data } = usePersonalStatusUserQuery(requestData);
 
 // 이 리스트에 존재하는 기수는 보이지 않음
-const visibleList = ref([]);
+const visibleList: Ref<number[]> = ref([]);
 
 /**
  * Methods
  */
 
-const selectUser = (item: PersonalStatusUser) =>{
+const selectUser = (item: PersonalStatusUsers) =>{
     emits('update:value', item);
 };
 
@@ -64,7 +64,7 @@ const kisuCheck = (value: number) => {
 const countKisu = (value: number): number => {
     let count = 0;
 
-    data.value.forEach(item  => {
+    data.value.forEach((item: PersonalStatusUsers) => {
         if (item.kisu == value) count++;
     });
 
@@ -143,7 +143,7 @@ watch (
 
         <template v-else>
             <div class="layout__center">
-                <BaseSpinner size="50" />
+                <BaseSpinner :size="50" />
             </div>
         </template>
     </div>

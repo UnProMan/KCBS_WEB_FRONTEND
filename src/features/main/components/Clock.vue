@@ -1,12 +1,12 @@
-<script setup lang="ts">
+<script setup>
 import { formatDateTime } from '@/components/functions/formatFunc';
 import BaseCard from '@/components/base/BaseCard.vue';
 
 const deg = 6;
-const hr = document.getElementsByClassName('hr') as any as HTMLElement;
-const mn = document.getElementsByClassName('mn') as any as HTMLElement;
-const sc = document.getElementsByClassName('sc') as any as HTMLElement;
-const text = document.getElementsByClassName('datetime-text') as any as HTMLElement;
+const hr = document.getElementsByClassName('hr');
+const mn = document.getElementsByClassName('mn');
+const sc = document.getElementsByClassName('sc');
+const text = document.getElementsByClassName('datetime-text');
 
 setInterval(() => {
     const day = new Date();

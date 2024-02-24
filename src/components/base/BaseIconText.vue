@@ -27,7 +27,7 @@ const emits = defineEmits<{
 const onInput = (event: Event) => {
     valueRef.value = (event.target as HTMLInputElement).value;
     if (props.numberFilter) {
-        valueRef.value = valueRef.value.replaceAll(/[^0-9]/g, '');
+        valueRef.value = valueRef.value.replace(/[^0-9]/g, '');
     }
     emits('update:value', valueRef.value);
 };

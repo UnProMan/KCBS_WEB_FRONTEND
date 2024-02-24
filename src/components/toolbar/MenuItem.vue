@@ -2,10 +2,10 @@
 import BaseIcon from '@/components/base/BaseIcon.vue';
 
 interface Props {
-    icon: String;
-    title: String;
-    action: Function;
-    isActive: Function;
+    icon: string;
+    title: string;
+    action: () => void;
+    isActive?: () => void;
 }
 
 /**
@@ -20,8 +20,8 @@ const props = defineProps<Props>();
     <button
         class="menuItem"
         :class="{ 'menuItem-isActive': isActive ? isActive() : null }"
-        @click="action"
-        :title="title"
+        @click="props.action"
+        :title="props.title"
     >
         <BaseIcon class="icon" :name="props.icon" />
     </button>

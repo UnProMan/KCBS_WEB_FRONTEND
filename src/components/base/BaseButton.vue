@@ -5,7 +5,7 @@ interface BaseButtonProps {
     size?: 'large' | 'medium' | 'small';
     width?: string;
     height?: string;
-    disabled?: string;
+    disabled?: boolean;
     color?: string;
 }
 

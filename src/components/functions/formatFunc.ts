@@ -20,7 +20,7 @@ export const formatPhoneNumber = (str: String): String =>
 /**
  * 이미지 URL 생성
  */
-export const formatImageURL = (str: String): String =>
+export const formatImageURL = (str: string): string =>
     'https://lh3.googleusercontent.com/u/0/d/' + str;
 
 
@@ -43,9 +43,9 @@ export const formatDateTime = (date: Date): String => {
 }
 
 /**
- * yyyy-MM-dd 형식을 yyyy년 M월 d일로 변경
+ * yyyy-MM-dd (date) 형식을 yyyy년 M월 d일로 변경
  */
-export const formatString = (inputeDate: string): string => {
+export const formatString = (inputeDate: Date): string => {
     const date = new Date(inputeDate);
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
