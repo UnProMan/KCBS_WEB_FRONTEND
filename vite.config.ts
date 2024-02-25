@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
     ],
     base: '',
     server: {
+      historyApiFallback: true,
       proxy: {
         [`${BASE_URL}api`]: {
           target: 'http://127.0.0.1:8080',

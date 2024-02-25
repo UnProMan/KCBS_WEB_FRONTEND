@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router';
 import { navigations } from './navigation.ts';
 import { updateActiveDomainName } from './navigationGuide.ts';
@@ -27,7 +27,8 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.VITE_ROUTER_BASE_URL),
+    // history: createWebHistory(import.meta.env.VITE_ROUTER_BASE_URL),
+    history: createWebHashHistory(),
     routes
 });
 
