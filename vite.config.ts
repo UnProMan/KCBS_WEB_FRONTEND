@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
     ],
-    base: BASE_URL,
+    base: '',
     server: {
       proxy: {
         [`${BASE_URL}api`]: {
