@@ -4,7 +4,7 @@ import type {
     JoinUserRequest, 
     PersonalStatusUsers, 
     PersonalStatusRequest 
-} from "@/model/User"
+} from "@/model/User.ts"
 import axiosInstance from "./config.ts";
 
 export const loginUser = async ({ queryParams: params }: LoginRequest) =>
@@ -20,4 +20,4 @@ export const joinUser = async (req: JoinUserRequest) =>
     await axiosInstance.post("/join", req);
 
 export const personalStatusUsers = async ({ queryParams: params }: PersonalStatusRequest) =>
-    await axiosInstance.get<PersonalStatusUsers>('/users/personal/status', {params});
+    await axiosInstance.get<PersonalStatusUsers[]>('/users', {params});

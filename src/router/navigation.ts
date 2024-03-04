@@ -33,13 +33,21 @@ export const navigations: Navigation[] = [
         path: '/signUp',
         icon: 'person_add',
         isLoginShow: false,
-        component: () => import('@/features/join_user/page/JoinUserPage.vue')
+        component: () => import('@/features/joinUser/page/JoinUserPage.vue')
+    },
+    {
+        id: 'dilayTask',
+        name: '라디오/뉴스 일정',
+        path: '/dailyTask',
+        icon: 'task',
+        component: () => import('@/features/dailyTask/page/DailyTaskPage.vue'),
+        isLoginShow: true
     },
     {
         id: 'users',
         name: 'KCBS 인원현황',
         path: '/users',
-        'icon': 'group',
+        icon: 'group',
         component: () => import('@/features/personalUsers/page/PersonalUsersPage.vue'),
         isLoginShow: true
     },

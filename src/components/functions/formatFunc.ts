@@ -53,3 +53,23 @@ export const formatString = (inputeDate: Date): string => {
     
     return `${year}년 ${month}월 ${day}일`;
 }
+
+/**
+ * 받은 Date의 요일을 구하는 함수
+ */
+export const formatGetWeek = (date: Date): string => {
+    const week: string[] = '일, 월, 화, 수, 목, 금, 토'.split(', ');
+    
+    return week[date.getDay()];
+}
+
+/**
+ * 
+ * Date형식을 yyyy-MM-dd 형식으로 변경
+ * 
+ */
+export const formatDateToString = (inputDate: Date): string => {
+    const date = new Date(inputDate);
+
+    return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+}

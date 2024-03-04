@@ -53,7 +53,7 @@ export interface LoginRequest {
     }
 };
 
-export interface User {
+export interface BaseUser {
     id: number;
     studentId: string;
     name: string;
@@ -64,6 +64,9 @@ export interface User {
     role: UserRoleCode;
     kisu: number;
     file_ID: string;
+}
+
+export interface User extends BaseUser {
     accessToken: string;
 };
 
@@ -84,16 +87,6 @@ export interface PersonalStatusRequest {
     }
 }
 
-export interface PersonalStatusUsers {
-    id: number;
-    studentId: string;
-    name: string;
-    email: string;
-    birthday: Date;
-    phone_Number: string;
-    attendance_state: '재학' | '휴학';
-    role: UserRoleCode;
-    kisu: number;
-    file_ID: string;
+export interface PersonalStatusUsers extends BaseUser {
     departments: Department[];
 }
