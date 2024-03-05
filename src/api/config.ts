@@ -5,7 +5,7 @@ const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 const URL = `${PROXY}`;
 
 const axiosInstance = Axios.create({
-    baseURL: `/kcbs/api${URL}`,
+    baseURL: '/kcbs/api',
     // timeout: 5000,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
