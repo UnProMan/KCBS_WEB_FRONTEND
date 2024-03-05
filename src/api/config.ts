@@ -1,12 +1,9 @@
 import Axios from "axios";
 import { useUserStore } from '@/store/useUserStore.ts';
 
-const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-const URL = `${PROXY}`;
-
 const axiosInstance = Axios.create({
     baseURL: '/kcbs/api',
-    // timeout: 5000,
+    timeout: 5000,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true,
 });
