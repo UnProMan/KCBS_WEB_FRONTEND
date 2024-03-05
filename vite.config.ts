@@ -6,7 +6,6 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   const BASE_URL = env.VITE_ROUTER_BASE_URL;
-  const SERVER_URL = env.VITE_SERVER_URL;
   return {
     plugins: [
       vue(),
@@ -16,7 +15,7 @@ export default defineConfig(({ mode }) => {
       historyApiFallback: true,
       proxy: {
         [`${BASE_URL}api`]: {
-          target: SERVER_URL,
+          target: 'https://port-0-kcbs-web-backend-dc9c2nlsiimp11.sel5.cloudtype.app',
           // secure: true,
           changeOrigin: true,
         }
