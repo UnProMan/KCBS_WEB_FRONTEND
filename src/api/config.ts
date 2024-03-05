@@ -3,7 +3,7 @@ import { useUserStore } from '@/store/useUserStore.ts';
 
 const axiosInstance = Axios.create({
     baseURL: '/kcbs/api',
-    timeout: 5000,
+    // timeout: 5000,
     headers: {},
     withCredentials: true,
 });
