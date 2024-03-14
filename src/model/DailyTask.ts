@@ -2,7 +2,7 @@ import type { BaseUser } from "./User";
 
 export interface DailyTask {
     id: number;
-    date: Date;
+    date: string;
     taskTypes: '점심라디오' | '저녁라디오' | '뉴스';
     taskUsers: TaskUsers[];
 }

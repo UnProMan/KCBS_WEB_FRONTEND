@@ -37,13 +37,13 @@ const isWeekDate = (value: number): number => {
     return new Date(taskYear.value, taskMonth.value, value).getDay();
 }
 
-const filterData = (day: number, type: '점심라디오' | '저녁라디오' | '뉴스'): DailyTask => {
+const filterData = (day: number, type: '점심라디오' | '저녁라디오' | '뉴스'): DailyTask | undefined => {
     const findDate = 
         `${taskYear.value}-` +
         `${(taskMonth.value + 1) < 10 ? '0' + (taskMonth.value + 1) : (taskMonth.value + 1)}-` +
         `${day < 10 ? '0' + day : day}`;
 
-    return props.taskData.find((item: DailyTask) => 
+    return props.taskData!.find((item: DailyTask) => 
         findDate == item.date && item.taskTypes === type
     );
 }

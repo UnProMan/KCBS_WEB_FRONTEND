@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/kcbs/api/*"
-  to = "https://port-0-kcbs-web-backend-dc9c2nlsiimp11.sel5.cloudtype.app/kcbs/api/:splat"
-  status = 200
-  force = true
