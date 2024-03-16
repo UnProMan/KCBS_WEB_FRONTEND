@@ -16,7 +16,7 @@ const userStore = useUserStore();
         class="info-container"
     >
         <div class="img-container">
-            <img :src="formatImageURL(userStore.user.file_ID)"/>
+            <img :src="formatImageURL(userStore.user.fileID)"/>
         </div>
 
         <div class="layout__flexColumn">

@@ -14,7 +14,7 @@ const email = ref<string>('');
 const password = ref<string>('');
 const password_check = ref<string>('');
 const birthday = ref<string>('');
-const phone_number = ref<string>('');
+const phoneNumber = ref<string>('');
 const kisu = ref<number>( 30 + (new Date().getFullYear() - 2022) ); // 22년도에 30기가 신입국원이였던걸 이용
 
 const joinUserObject = computed<JoinUserRequest>(() => {
@@ -24,7 +24,7 @@ const joinUserObject = computed<JoinUserRequest>(() => {
         email: email.value,
         password: password.value,
         birthday: formatDate(birthday.value),
-        phone_Number: formatPhoneNumber(phone_number.value),
+        phoneNumber: formatPhoneNumber(phoneNumber.value),
         kisu: Number(kisu.value)
     };
 });
@@ -40,7 +40,7 @@ const isBlank = (): boolean =>
         || password.value.trim()
         || password_check.value.trim()
         || birthday.value.trim()
-        || phone_number.value.trim()
+        || phoneNumber.value.trim()
         || kisu.value
     );
 
@@ -74,7 +74,7 @@ const isDateAfterToday = () => {
 
 // 전화번호 형식 체크
 const isValidPhoneNumber = (): boolean =>
-    /^010\d{8}$/.test(phone_number.value.toString());
+    /^010\d{8}$/.test(phoneNumber.value.toString());
 
 const handlerJoinButton = () => {
     // 공백 check
@@ -149,7 +149,7 @@ const { mutate } = useJoinUserMutation();
         <BaseText width="100%" caption="비밀번호 (문자, 숫자, 특수문자 포함 8~20자)" type="password" v-model:value="password" />
         <BaseText width="100%" caption="비밀번호 확인" type="password" v-model:value="password_check" />
         <BaseText width="100%" caption="생년월일 (YYYYMMDD)" :numberFilter="true" v-model:value="birthday" />
-        <BaseText width="100%" caption="전화번호 ('-' 제외 11자리 입력)" :numberFilter="true" v-model:value="phone_number" />
+        <BaseText width="100%" caption="전화번호 ('-' 제외 11자리 입력)" :numberFilter="true" v-model:value="phoneNumber" />
         <BaseText width="100%" caption="기수" :numberFilter="true" v-model:value="kisu" />
         <BaseButton width="100%" @click="handlerJoinButton" >회원가입</BaseButton>
     </div>

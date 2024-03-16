@@ -59,11 +59,11 @@ export interface BaseUser {
     name: string;
     email: string;
     birthday: Date;
-    phone_Number: string;
-    attendance_state: '재학' | '휴학';
+    phoneNumber: string;
+    attendanceState: '재학' | '휴학';
     role: UserRoleCode;
     kisu: number;
-    file_ID: string;
+    fileID: string;
 }
 
 export interface User extends BaseUser {
@@ -76,7 +76,7 @@ export interface JoinUserRequest {
     email: string;
     password: string;
     birthday: Date;
-    phone_Number: string;
+    phoneNumber: string;
     kisu: number;
 };
 

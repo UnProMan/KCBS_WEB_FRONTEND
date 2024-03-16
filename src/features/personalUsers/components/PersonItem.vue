@@ -66,7 +66,7 @@ const isActive = (id: number) => {
     <div class="person-container">
         <div class="left-userinfo">
             <div class="img-container">
-                <img :src="formatImageURL(props.info.file_ID)" >
+                <img :src="formatImageURL(props.info.fileID)" >
             </div>
 
             <div>

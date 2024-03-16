@@ -15,8 +15,8 @@ export default defineConfig(({ mode }) => {
       historyApiFallback: true,
       proxy: {
         [`${BASE_URL}api`]: {
-          target: 'https://port-0-kcbs-web-backend-dc9c2nlsiimp11.sel5.cloudtype.app',
-          // secure: true,
+          target: 'http://127.0.0.1:8080',
+          secure: true,
           changeOrigin: true,
         }
       }

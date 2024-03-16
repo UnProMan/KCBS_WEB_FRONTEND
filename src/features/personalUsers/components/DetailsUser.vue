@@ -62,7 +62,7 @@ watch (
         <BaseIcon name="close" class="icon" @click="close" />
 
         <div class="image-container">
-            <img :src="formatImageURL(props.info.file_ID)">
+            <img :src="formatImageURL(props.info.fileID)">
         </div>
 
         <p class="kisu-text">{{ userRoleMap.get(props.info.role) }}</p>
@@ -79,7 +79,7 @@ watch (
 
         <p class="content-text">학번: {{ props.info.studentId }}</p>
 
-        <p class="content-text">전화번호: {{ props.info.phone_Number }}</p>
+        <p class="content-text">전화번호: {{ props.info.phoneNumber }}</p>
 
         <p class="content-text">이메일: {{ props.info.email }}</p>
 

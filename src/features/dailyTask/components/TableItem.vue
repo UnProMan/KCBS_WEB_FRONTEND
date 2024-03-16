@@ -17,7 +17,7 @@ const props = defineProps<Props>();
         <template v-for="item in props.data.taskUsers" :key="item">
             <div class="item-warp layout__flexColumn">
                 <div class="img-container">
-                    <img :src="formatImageURL(item.user.file_ID)" >
+                    <img :src="formatImageURL(item.user.fileID)" >
                 </div>
         
                 {{ item.user.name }}
